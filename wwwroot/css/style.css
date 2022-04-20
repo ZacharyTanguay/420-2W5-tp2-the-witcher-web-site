@@ -1,0 +1,400 @@
+﻿body {
+    width: 100%;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    background-color: black;
+}
+
+/* BARRE DE NAVIGATION */
+.navbar {
+    background-color: black;
+    box-shadow: 0 0 20px black;
+}
+
+.nav-link {
+    transition: color 0.2s ease-out;
+}
+
+.texteNavBar {
+    font-size: 110%;
+    font-family: Verdana;
+    text-transform: uppercase;
+}
+
+.tailleImageLogo {
+    height: 50px;
+}
+
+.tailleImageFavoris {
+    height: 100px;
+}
+/* BARRE DE NAVIGATION */
+
+/*--------------------*/
+
+/* BACKGROUND */
+.form-control {
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 30px black;
+}
+
+.form-control::placeholder {
+    color: white;
+}
+
+.background {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/* BACKGROUND */
+
+/*--------------------*/
+
+.Invisible {
+    display: none;
+}
+
+/* CONTENEUR */
+main {
+    margin-bottom: 100px;
+}
+
+.conteneurAccueil {
+    border: 1.5px solid red;
+    background-color: black;
+    opacity: 0.8;
+    transition: opacity 0.2s ease-in-out, transform 1s;
+}
+
+.conteneurAccueil:hover {
+    animation: debutAnimeAccueil 0.2s ease-in, animeAccueil 1s ease-in-out 0.2s infinite;
+    opacity: 1.0;
+    box-shadow: 0 0 30px red;
+}
+
+.conteneurImageRecherche {
+    position: relative;
+    border: 2px groove darkred;
+    border-radius: 10px;
+    transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+    justify-content: center !important;
+    box-shadow: 0 0 20px darkred inset;
+}
+
+.ImageRecherche {
+    box-shadow: 0 0 20px black;
+}
+
+.conteneurImageRecherche:hover {
+    animation: animeAccueil 1s ease-in-out infinite;
+    box-shadow: 0 0 20px red;
+}
+
+.conteneurFormRecherche {
+    background-color: transparent;
+    opacity: 0.8;
+}
+
+.conteneurImageDetail {
+    border: 1px solid red;
+    margin: 50px;
+    box-shadow: 0 0 30px black;
+    animation: animeAccueil 1s ease-in-out infinite;
+}
+
+    .conteneurImageDetail:hover {
+        box-shadow: 0 0 20px red;
+        animation: none;
+    }
+/* CONTENEUR */
+
+/*--------------------*/
+
+/* IMAGES/CAROUSEL & PERSONNAGE */
+
+.card-decks {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+}
+
+    .carousel {
+    z-index: -1;
+}
+
+.card-text {
+    font-family: 'Times New Roman';
+    font-size: 110%;
+}
+
+.tailleImageAccueil {
+    height: 450px;
+}
+
+.nomPersonnageRecherche {
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    padding: 5px;
+    background-color: gray;
+    color:white;
+    opacity: 0.7;
+    transition: 1s;
+}
+
+.nomPersonnageRecherche:hover {
+    opacity: 1.0;
+    background-color: black;
+}
+
+.rolePersonnageRecherche {
+    position: absolute;
+    bottom: 3px;
+    right: 3px;
+    padding: 5px;
+    background-color: grey;
+    color:white;
+    opacity: 0.7;
+    transition: 1s;
+}
+
+.rolePersonnageRecherche:hover {
+    opacity: 1.0;
+    background-color: black;
+}
+
+.tailleImageDetail {
+    height: 600px;
+    width: 600px;
+    box-shadow: 0 0 30px darkred;
+}
+/* IMAGES */
+/*--------------------*/
+/* TEXTES */
+.texteForm {
+    font-weight: bold;
+}
+
+.texteEnBlanc {
+    color: white;
+}
+
+.texteDescDetail1 {
+    border: 1px solid red;
+}
+
+.texteDescDetail2 {
+    border: 1px solid red;
+}
+
+.titrePage {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    text-align: center;
+    text-shadow: 3px 2px 5px red;
+}
+
+.liensInvisible {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.liensInvisible:hover {
+    color: red;
+    text-decoration: none;
+}
+/* TEXTES */
+
+/*--------------------*/
+
+/* BOUTON */
+.boutonRecherche {
+    border: 3px solid transparent;
+    border-radius: 10px;
+}
+
+.boutonDetail {
+    border: 5px solid transparent;
+    border-radius: 5px;
+    padding: 3px;
+    font-family: cursive;
+}
+/* BOUTON */
+
+/*--------------------*/
+
+/* LISTE DES MÉDIAS */
+@media (max-width: 576px){
+    .backgroundPageRecherche {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .titreConteneurAccueil {
+        font-size: 150%;
+        font-family: Papyrus;
+    }
+    .tailleImageAccueil {
+        height: 350px;
+    }
+    .imageRecherche {
+        width: 200px;
+        height: 350px;
+    }
+    .navbar {
+        justify-content: left;
+        text-align: match-parent;
+    }
+    .logoNavBar2 {
+        display: none;
+    }
+    .rowImageRecherche {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 992px){
+    .backgroundPageRecherche {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .tailleImageAccueil {
+        height: 250px;
+    }
+    .titreConteneurAccueil {
+        font-size: 75%;
+        font-family: Papyrus;
+    }
+    .card-text {
+        text-align: start;
+        font-size: 80%;
+    }
+    .imageRecherche {
+        width: 500px;
+        height: 200px;
+    }
+    .navbar {
+        justify-content: left;
+        text-align: match-parent;
+    }
+    .logoNavBar2 {
+        display: none;
+    }
+    .rowImageRecherche {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1400px){
+    .backgroundPageRecherche {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+    }
+    .titreConteneurAccueil {
+        font-size: 100%;
+        font-family: Papyrus;
+    }
+    .tailleImageAccueil {
+        height: 350px;
+    }
+    .imageRecherche {
+        height: 250px;
+    }
+    #navbarNav {
+        justify-content: center;
+    }
+    .rowImageRecherche {
+        justify-content: center;
+    }
+    .logoNavBar2 {
+        display: none;
+    }
+}
+
+@media (min-width: 1400px) {
+    .backgroundPageRecherche {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: top;
+    }
+    .titreConteneurAccueil {
+        font-size: 150%;
+        font-family: Papyrus;
+    }
+    .imageRecherche {
+        height: 350px;
+    }
+    #navbarNav {
+        justify-content: center;
+    }
+    .logoNavBar2 {
+        display: none;
+    }
+}
+
+/* MÉDIAS PAGE DETAIL */
+@media (max-width: 576px) {
+    .texteDescDetail2 {
+        display: none;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .texteDescDetail2 {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .texteDescDetail2 {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .texteDescDetail2 {
+        display: none;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1400px) {
+    .texteDescDetail1 {
+        display: none;
+    }
+}
+
+@media (min-width: 1400px) {
+    .texteDescDetail1 {
+        display: none;
+    }
+}
+
+/* LISTE DES MÉDIAS */
+
+ @keyframes animeAccueil {
+    0% {
+        transform: translateY(0px) scale(1.01);
+    }
+
+    50% {
+        transform: translateY(-10px) scale(1.01);
+    }
+
+    100% {
+        transform: translateY(0px) scale(1.01);
+    }
+ }
+
+ @keyframes debutAnimeAccueil {
+     from {
+         transform: scale(1);
+     }
+     to {
+         transform: scale(1.01);
+     }
+ }

@@ -1,0 +1,36 @@
+﻿.navbar {
+    background-color: black;
+    box-shadow: 0 0 20px black;
+}
+
+.nav-link {
+    transition: color 0.2s ease-out;
+}
+
+.navBarMedallion {
+    height: 50px;
+    filter: drop-shadow(0px 2px 1px darkred);
+}
+
+.steelsword {
+    position: absolute;
+    right: -5%;
+    top: 38%;
+    transform: translateY(-50%);
+    width: 450px;
+    filter: drop-shadow(20px 0 10px red);
+    transform: rotate(180deg);
+    transition: top 0.2s ease-out;
+}
+
+@media (min-width: 992px) {
+    #sword {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    #medallionWolfSchool2 {
+        display:none !important;
+    }
+}

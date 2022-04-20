@@ -1,0 +1,159 @@
+﻿<!--
+Projet de session | TP1 | ProgrammationWebServeur
+Nom : Tanguay , Prénom : Zachary , Matricule : 2176651
+-->
+<!DOCTYPE html>
+<html lang="fr" style="box-shadow: inset 0 0 100px">
+<head>
+    <!-- TAGS META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- LIEN CSS -->
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/styleAccueil.css">
+    <link rel="stylesheet" href="~/css/styleNavBar.css">
+    <link rel="stylesheet" href="~/css/aides.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0/css/all.min.css" crossorigin="anonymous" integrity="sha256-ybRkN9dBjhcS2qrW1z+hfCxq+1aBdwyQM5wlQoQVt/0=" type="text/css" />
+    @RenderSection("BackgroundDiff", false)
+    <!-- TITRE -->
+    <title>@ViewData["title"]</title>
+</head>
+
+<body class="background">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark texteNavBar">
+            <!--Créer un barre de navigation pour permettre une navigation plus optimiser-->
+            <img src="/images/Épée.png" class="steelsword" id="sword" alt="logoNavBar">
+            <a class="navbar-brand" href="/Home/Index"><img src="/images/wolfSchoolMedallion.png" class="navBarMedallion" id="medallionWolfSchool1" alt="medallionWolfSchool (full screen & windowed)"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item @RenderSection("activeAccueil", false)">
+                        <a class="nav-link" href="/Home/Index"><i class="fas fa-home"></i> Accueil<span class="sr-only"></span></a>
+                    </li>
+                    <li class="nav-item @RenderSection("activeRecherche", false)">
+                        <a class="nav-link" href="/Enfant/Recherche"><i class="fas fa-search"></i> Recherche</a>
+                    </li>
+                    <li class="nav-item @RenderSection("activeFavoris", false)">
+                        <a class="nav-link" href="/Favoris/Index"><i class="far fa-star"></i> Favoris</a>
+                    </li>
+                </ul>
+            </div>
+            <a class="navbar-brand" href="/Home/Index"><img src="/images/wolfSchoolMedallion.png" class="navBarMedallion" id="medallionWolfSchool2" alt="medallionWolfSchool (full screen onl)"></a>
+        </nav>
+    </header>
+    <main class="container-fluid">
+        @RenderBody()
+    </main>
+    <footer class="Invisible">
+        <!-- BACKGROUND -->
+        <a href="https://www.pinterest.com/pin/506021708114637769/">backgroundPageAccueil (../images/Background_1.jpg)</a>
+        <a href="https://fr.phoneky.com/wallpapers/?id=w36w1896118#gsc.tab=0">backgroundPageRecherche (../images/Background_2.jpg)</a>
+
+        <!-- LOGO -->
+        <a href="https://www.begeek.fr/the-witcher-prologue-premier-opus-a-ete-remasterise-redengine-3-254106">images/Logo_The_Witcher_1.jpg</a>
+
+        <!-- LISTES DES PERSONNAGES -->
+        <!-- | ROIS | -->
+        <!-- Radowid -->
+        <a href="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQQtAKmcfj-Qq8hQjyk_2oap0PcvJmjrv9Au8dOFOSEnMe3P2jj">Radowid_1 (images/Radowid_1.png)</a>
+
+        <a href="https://www.deviantart.com/breuv/art/Radovid-888915078">Radowid_2 (images/Radowid_2.jpg)</a>
+
+        <a href="https://64.media.tumblr.com/b26b907a5b9c4c0b61c7ac0b5b0f7349/676982a22891984e-0a/s1280x1920/443501cbcdbc18a4eb123f6099275225b66d09a9.jpg">Radowid_3 (images/Radowid_3.jpg)</a>
+
+        <a href="https://static.wikia.nocookie.net/witcher/images/7/72/Gwent_cardart_northern_radovid_v.png/revision/latest/scale-to-width-down/250?cb=20181028153930">Radowid_4 (images/Radowid_4.jpg)</a>
+
+        <!-- Emhyr -->
+        <a href="https://static.wikia.nocookie.net/witcher/images/c/c2/Tw3_cardart_nilfgaard_emhyr_copper.png/revision/latest/scale-to-width-down/309?cb=20170425174237">Emhyr_1 (images/Emhyr_1.webp)</a>
+
+        <a href="https://iron-throne-roleplay.fandom.com/wiki/Baelor_Bittersteel?file=Emhyr_var_emreis_by_stephanieboehm-dabf0j2.jpg">Emhyr_2 (images/Emhyr_2.webp)</a>
+
+        <a href="https://static.wikia.nocookie.net/witcher/images/0/0f/Gwent_cardart_nilfgaard_emhyr_var_emreis.png/revision/latest?cb=20181028154213">Emhyr_3 (images/Emhyr_3.jpg)</a>
+
+        <!-- Eredin -->
+        <a href="https://static.wikia.nocookie.net/sorceleur/images/1/14/An-elflas-auberon-muircetach17.jpg/revision/latest?cb=20191005212332">Eredin_1 (images/Eredin_1.webp)</a>
+
+        <a href="https://i.imgur.com/d6yb2BR.jpg">Eredin_2 (images/Eredin_2.jpg)</a>
+
+        <a href="https://static.zerochan.net/Eredin.Br%C3%A9acc.Glas.full.2177600.jpg">Eredin_3 (images/Eredin_3.jpg)</a>
+
+        <!-- | MAGICIENNES | -->
+        <!-- Yennefer -->
+        <a href="https://i.pinimg.com/originals/98/e4/80/98e480f3c2100a2e3a3af160a7ff5c9a.jpg">Yen_1 (images/Yen_1.jpg)</a>
+
+        <a href=" https://static.wikia.nocookie.net/awoiaf-rp/images/5/5e/Rhea_Hightower.jpg/revision/latest?cb=20180614155737">Yen_2 (images/Yen_2.webp)</a>
+
+        <a href="https://c.wallhere.com/photos/de/70/fan_art_The_Witcher_video_game_art_long_hair_artwork_crow_violet_eyes_dark_hair-1937445.jpg!d">Yen_3 (images/Yen_3.jpg)</a>
+
+        <a href="https://cdnb.artstation.com/p/assets/images/images/025/216/179/large/josue-lemus-yenn-insta.jpg?1585054819">Yen_4 (images/Yen_4.jpg)</a>
+        <!-- Triss -->
+        <a href="https://cdnb.artstation.com/p/assets/images/images/019/640/183/large/veres-gergely-triss-rajz.jpg?1564401664">Triss_1 (images/Triss_1.jpg)</a>
+
+        <a href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fb1fb7e2-3abd-4ce8-b9d6-e342bda90a34/d966iy5-805b3450-b7c0-415e-8a97-09d33f2b245d.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2ZiMWZiN2UyLTNhYmQtNGNlOC1iOWQ2LWUzNDJiZGE5MGEzNFwvZDk2Nml5NS04MDViMzQ1MC1iN2MwLTQxNWUtOGE5Ny0wOWQzM2YyYjI0NWQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ramSJY9GLM09Hitqtn5pDSmfLTzCj9hndXFtu3HRy-w">Triss_2 (images/Triss_2.jpg)</a>
+
+        <a href="https://cdnb.artstation.com/p/assets/images/images/019/394/133/large/anfisa-demchenko-.jpg?1563293463">Triss_3 (images/Triss_3.jpg)</a>
+
+        <!-- Keira -->
+        <a href="https://i.pinimg.com/originals/20/b0/dc/20b0dc5f75d6958c7cd8aa0b22963be8.jpg">Keira_1 (images/Keira_1.jpg)</a>
+
+        <a href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6887565-4de3-4746-8ce7-796fd0713d99/dagw6ka-0b987daf-dda1-4ee8-bca1-6b9ecbfce402.jpg/v1/fill/w_1024,h_1326,q_75,strp/keira_metz_by_shikiowl_dagw6ka-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTMyNiIsInBhdGgiOiJcL2ZcL2Q2ODg3NTY1LTRkZTMtNDc0Ni04Y2U3LTc5NmZkMDcxM2Q5OVwvZGFndzZrYS0wYjk4N2RhZi1kZGExLTRlZTgtYmNhMS02YjllY2JmY2U0MDIuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.y4tfv6S9dlLtVDC8w1E7kJhp77RUi37_EAzccMtdAt4">Keira_2 (images/Keira_2.jpg)</a>
+
+        <a href="https://i.pinimg.com/originals/ed/ab/e8/edabe8e23d2ee09d4d7c028de0cbc993.jpg">Keira_3 (images/Keira_3.jpg)</a>
+
+        <!-- | SORCELEURS | -->
+        <!-- Geralt -->
+        <a href="https://i.ytimg.com/vi/VpevTNRK-_M/maxresdefault.jpgs">Geralt_1 (images/Geralt_1.jpg)</a>
+
+        <a href="https://i.pinimg.com/originals/f5/87/b4/f587b4ce735c4120baca7bbabd1d0be4.jpg">Geralt_2 (images/Geralt_2.jpg)</a>
+
+        <a href="https://i.pinimg.com/originals/72/9d/85/729d853dc11be40f76cfe6b9344e1f0f.jpg">Geralt_3 (images/Geralt_3.jpg)</a>
+
+        <a href="https://cdnb.artstation.com/p/assets/images/images/013/758/727/large/qichao-wang-.jpg?1540998811">Geralt_4 (images/Geralt_4.jpg)</a>
+
+        <!-- Vesemir -->
+        <a href="https://br.pinterest.com/pin/405746247676887729/">Vesemir_1 (images/Vesemir_1.jpg)</a>
+
+        <a href="https://witcher-archive.fandom.com/fr/wiki/Vesemir?file=Vesemir.JPG">Vesemir_2 (images/Vesemir_2.jpg)</a>
+
+        <a href="https://gwent.pro/img/123-big.jpg">Vesemir_3 (images/Vesemir_3.jpg)</a>
+
+        <!-- Lambert -->
+        <a href="https://www.pinterest.com/pin/lambert-the-witcher-3-mirai-savenkova-tetyana-on-artstation-at-httpswwwartstationcomartwork456bw--379569074837838524/">Lambert_1 (images/Lambert_1.jpg)</a>
+
+        <a href="https://www.reddit.com/r/witcher/comments/9x8k47/lambert_by_niki_vaszi/">Lambert_2 (images/Lambert_2.webp)</a>
+
+        <a href="https://samequizy.pl/wp-content/uploads/2020/04/images_ef80eb4382b8.jpg">Lambert_3 (images/Lambert_3.jpg)</a>
+
+        <!-- Ciri -->
+        <a href="https://preview.redd.it/csou287ho1p51.jpg?width=1118&format=pjpg&auto=webp&s=4f7689aaa6ef58e12bd0dbeec4295a27b5a3facd">Ciri_1 (images/Ciri_1.webp</a>
+
+        <a href="http://img13.deviantart.net/027b/i/2016/215/e/b/ciri_by_madtom86-dacjgeo.jpg">Ciri_2 (images/Ciri_2.jpg</a>
+
+        <a href="https://i.pinimg.com/originals/ed/80/2c/ed802c7127b15d15f871e40f2cbccf7f.jpg">Ciri_3 (images/Ciri_3.jpg</a>
+
+        <!-- Avallac -->
+        <a href="https://cdna.artstation.com/p/assets/images/images/027/068/040/large/alexandra-ovsyankina-avallach-2-4.jpg?1590505664">Avallac_1 (images/Avallac_1.jpg</a>
+
+        <a href="http://img13.deviantart.net/027b/i/2016/215/e/b/ciri_by_madtom86-dacjgeo.jpg">Avallac_2 (images/Avallac_2.webp</a>
+
+        <a href="https://pbs.twimg.com/media/FD2-awQWYAMedsu?format=jpg&name=large">Avallac_3 (images/Avallac_3.jpg</a>
+
+        <!-- Cerys -->
+        <a href="https://cdna.artstation.com/p/assets/images/images/006/964/410/large/margarita-katunina-.jpg">Cerys_1 (images/Cerys_1.webp</a>
+
+        <a href="https://i.pinimg.com/736x/93/7c/3e/937c3ec289a391e0d462424edda34c09.jpg"> Cerys_2 (images/Cerys_2.jpg</a>
+
+        <a href="https://www.deviantart.com/zunionart/art/Witcher-3-Cerys-878845465"> Cerys_3 (images/Cerys_3.jpg</a>
+
+        <!-- SCRIPTS JS -->
+        <script src="/js/jquery-3.4.1.slim.js"></script>
+        <script src="/js/popper.js"></script>
+        <script src="/js/bootstrap.js"></script>
+        <script src="/js/JavaScript.js"></script>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNetCore.Builder;
+@using Microsoft.AspNetCore.Hosting;
+@using Microsoft.Extensions.Configuration;
+@using Microsoft.Extensions.DependencyInjection;
+@using Microsoft.Extensions.Hosting;
+@using System;
+@using System.Collections.Generic;
+@using System.Linq;
+@using System.Threading.Tasks;
+@using TP1_Partie2_Tanguay_Zachary.Models;
+
+@{
+    Layout = "_Layout";
+}
+
+@model Enfant
+
+@section BackgroundDiff {
+    <style>
+        body {
+            background-image: url(/images/faceaface.png);
+        }
+    </style>
+}
+
+<div class="container-fluid background">
+    <form action="https://www.w3schools.com/action_page.php">
+        <br><!-- Espacement -->
+        <h1 class="titrePage texteEnBlanc text-center"><em><b>Détails du personnage @Model.Nom</b></em></h1>
+        <br><!-- Espacement -->
+        <div class="row">
+            <div class="col-md-4">
+                <div class="conteneurImageDetail">
+                    <img src="@Model.ImageURL1" class="img-fluid tailleImageDetail" alt="Geralt de Riv avec deux épée">
+                </div>
+                <br><!-- Espacement -->
+            </div>
+            <div class="col-md-8 texteEnBlanc">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-auto">
+                            <div class="form-row">
+                                <div class="alert alert-secondary boutonDetail" role="alert">
+                                    <b>PERSONNAGE VEDETTE!</b>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-auto">
+                            <div class="form-row">
+                                <input type="hidden" name="nom" id="GeraltdeRiv">
+                                <button type="submit" class="btn-primary boutonDetail">
+                                    <b>FAVORIS <i class="fas fa-plus"></i></b>
+                                </button>
+                            </div>
+                        </div>
+                    </div><br>
+                </div>
+                <div class="row infoPersonnageDetail">
+                    <p class="card-text">
+                        <div class="col-12">
+                            <span><b>Nom : @Model.Nom</b></span><br>
+                            <br>
+                            <span><b>Sexe :</b></span><br>
+                            <br>
+                            <span><b>Âge :</b></span><br>
+                            <br>
+                            <span><b>Rôle </b>:</span><br>
+                            <br>
+                        </div>
+                    </p>
+                </div>
+                <div class="row mr-3">
+                    <div class="col">
+                        <div class="alert alert-secondary texteDescDetail2" role="alert">
+                            <h5 class="text-center"><b class="titrePage text-uppercase">Description</b></h5>
+                            @Model.Description;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-secondary texteDescDetail1" role="alert">
+                    <h5 class="text-center"><b class="titrePage text-uppercase">Description</b></h5>
+                    @Model.Description;
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

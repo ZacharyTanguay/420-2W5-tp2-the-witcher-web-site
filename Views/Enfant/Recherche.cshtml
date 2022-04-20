@@ -1,0 +1,125 @@
+﻿@using TP1_Partie2_Tanguay_Zachary.Models;
+
+@{
+    Layout = "_Layout";
+}
+
+@section BackgroundDiff {
+    <style>
+        body {
+            background-image: url(../images/Background_4.webp);
+            height: auto;
+        }
+    </style>
+}
+
+@model List<Enfant>;
+
+@{
+    Random random = new Random();
+    var modelMélangé = Model.OrderBy(m => random.Next());
+}
+
+@section activeRecherche {
+    active
+}
+
+
+@{
+    ViewData["title"] = "Recherche";
+}
+
+<!-- PAGE : RECHERCHE -->
+<div class="background">
+    <!-- Espacement -->
+    <br>
+    <h1 class="titrePage texteEnBlanc text-center"><em><b>LISTES DES PERSONNAGES</b></em></h1>
+    <br>
+    <!-- Espacement -->
+    <div class="row mr-2">
+        <!--FORMULAIRE-->
+        <div class="col-12 col-md-3 col-lg-4 order-1 order-md-2 ml-2">
+            <form action="https://www.w3schools.com/action_page.php" class="conteneurFormRecherche texteEnBlanc mb-4">
+                <br><!--Espace-->
+                <div class="form-row form-group">
+                    <!--Début propriété de type texte en lien avec les entités enfants-->
+                    <div class="col">
+                        <label for="rechercheMotsClés" class="texteForm">Recherche par mots-clés</label>
+                        <input type="text" id="rechercheMotsClés" name="mots-clés" class="form-control" placeholder="Saisir un ou des mots-clés">
+                    </div>
+                </div><!--Fin propriété de type texte en lien avec les entités enfants-->
+                <br><!--Espace-->
+                <div class="form-row form-group">
+                    <!--Début propriété de type numérique en lien avec les entités enfants-->
+                    <div class="col-12">
+                        <label for="âgePersonnage" class="texteForm">Âge du personnage</label>
+                    </div>
+                    <div class="col-6 form-group">
+                        <input type="number" id="âgePersonnageM" name="âge" min="1" max="10000" class="form-control" placeholder="Min">
+                    </div>
+                    <div class="col-6 form-group">
+                        <input type="number" id="âgePersonnage" name="âge" min="1" max="10000" class="form-control" placeholder="Max">
+                    </div><!--Fin propriété de type numérique en lien avec les entités enfants -->
+                </div>
+                <br><!--Espace-->
+                <div class="form-row form-group">
+                    <!--Début liste déroulante portant sur le fait que l’entité enfant est une entité vedette (Peu importe/Oui/Non)-->
+                    <div class="col">
+                        <label for="personnageVedette" class="texteForm">Personnage Vedette</label>
+                        <select name="choixPersonnageVedette" id="personnageVedette" class="form-control">
+                            <option value="choixPeuImporte" selected>Peu importe</option>
+                            <option value="choixOui">Oui</option>
+                            <option value="choixNon">Non</option>
+                        </select>
+                    </div>
+                </div><!--Fin liste déroulante portant sur le fait que l’entité enfant est une entité vedette (Peu importe/Oui/Non)-->
+                <br><!--Espace-->
+                <div class="form-row form-group">
+                    <!--début checkbok pour représenter les entités parents (coché par défaut)-->
+                    <div class="col">
+                        <input type="checkbox" checked name="rois" id="corps1">
+                        <label for="corps1" class="texteForm">Rois / Reines</label><br>
+                        <input type="checkbox" checked name="Magiciennes" id="corps2">
+                        <label for="corps2" class="texteForm">Magiciens / Magiciennes</label><br>
+                        <input type="checkbox" checked name="Sorceleurs" id="corps3">
+                        <label for="corps3" class="texteForm">Sorceleurs / Sorceleuses</label><br>
+                    </div>
+                </div><!-- Fin checkbok pour représenter les entités parents (coché par défaut -->
+                <div class="form-row">
+                    <div class="col-auto"><button type="reset" class="btn-secondary boutonRecherche">Réinitialiser</button></div>
+                    <div class="col-auto"><button type="submit" class="btn-primary boutonRecherche">Rechercher</button></div>
+                </div>
+            </form>
+        </div>
+        <div class="col order-2 order-md-1">
+            <!-- RANGÉE 1-->
+            <div class="row rowImageRecherche ml-2">
+                @foreach (var Enfants in modelMélangé)
+                {
+                    <div class="col-8 col-md-3">
+                        <!--Colonne 1-->
+                        <div class="conteneurImageRecherche mt-5 ml-1">
+                            <a href="/Enfant/Détail/@Enfants.Id" class="liensInvisible">
+                                <div class="nomPersonnageRecherche"><i>@Enfants.Nom</i></div>
+                                <div class="rolePersonnageRecherche"><i>@Enfants.Parent.Nom</i></div>
+                                <div id="carouselVesemir" class="carousel slide" data-ride="carousel">
+                                    <div class="carousel-inner ImageRecherche">
+                                        <div class="carousel-item active">
+                                            <img class="imageRecherche d-block w-100" src="@Enfants.ImageURL1" alt="First slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="imageRecherche d-block w-100" src="@Enfants.ImageURL2" alt="Second slide">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img class="imageRecherche d-block w-100" src="@Enfants.ImageURL3" alt="Third slide">
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
