@@ -2,7 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <RootNamespace>TP1_Partie2_Tanguay_Zachary</RootNamespace>
+    <RootNamespace>TP2_Tanguay_Zachary</RootNamespace>
+    <AssemblyName>TP2_Tanguay_Zachary</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>

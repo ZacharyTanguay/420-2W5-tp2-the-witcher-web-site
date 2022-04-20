@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 
 
-namespace TP1_Partie2_Tanguay_Zachary.Models
+namespace TP2_Tanguay_Zachary.Models
 {
     public class Database
     {

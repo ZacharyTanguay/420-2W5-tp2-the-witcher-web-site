@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TP1_Partie2_Tanguay_Zachary.Controllers
+namespace TP2_Tanguay_Zachary.Controllers
 {
     public class FavorisController : Controller
     {
