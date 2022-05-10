@@ -8,7 +8,7 @@
     <style>
         body {
             background-image: url(../images/Background_4.webp);
-            height: auto;
+            backdrop-filter: blur(2px) !important;
         }
     </style>
 }
@@ -18,44 +18,44 @@
 }
 
 @{
-    ViewData["title"] = "Accueil";
+    ViewData["pageTitle"] = "TheWitcher.ca : Accueil";
+    ViewData["Title"] = "Categorie des personnages";
 }
 
 @model List<Parent>;
 
     <!-- PAGE : ACCUEIL -->
 
-<div class="background">
-
-        <!-- Espacement -->
-        <br>
-        <h1 class="titrePage texteEnBlanc text-center"><em><b>CATÉGORIES DES PERSONNAGES</b></em></h1>
-        <br>
-        <!-- Espacement -->
-        <div class="row">
-            @foreach (Parent parent in Model)
-            {
-                <div class="col card-decks texteEnBlanc">
-                    <div class=" card conteneurAccueil">
-                        <a href="/Enfant/Recherche" class="liensInvisible">
-                            <img src="@parent.ImageURL" class="card-img-top tailleImageAccueil" alt="...">
-                            <div class="card-body text-center">
-                                <h2 class="card-title titreConteneurAccueil">@parent.Nom.ToUpper()</h2>
-                                <p class="card-text">
-                                    <br>
-                                    <h6>| Statistique |</h6>
-                                    <ul>
-                                        <li class="card-text">Nombre de @parent.Nom : @(parent.Enfants.Count)</li>
-                                        <li class="card-text">Nombre de femmes : @(parent.Enfants.Count(e => e.Genre == "Féminin"))</li>
-                                        <li class="card-text">Nombre d'hommes : @(parent.Enfants.Count(e => e.Genre == "Masculin"))</li>
-                                    </ul>
-                                </p><br>
-                                <p class="card-text">@parent.Description</p>
+<div>
+    <div class="row homeCardRow">
+        @foreach (Parent parent in Model)
+        {
+            <div class="col card-decks txtWhite">
+                <div class=" card homeCardWrapper">
+                    <div class="homeCardBackground">
+                        <a href="/Enfant/Recherche" class="links">
+                            <div class="container">
+                                <div class="homeImgContainer">
+                                    <img src="@parent.ImageURL" class="card-img-top img-fluid homeCardImg" alt="...">
+                                </div>
+                                <div class="card-body text-center">
+                                    <h2 class="card-title homeCardTitle">@parent.Nom.ToUpper()</h2>
+                                    <p class="card-text">
+                                        <h6>ߜ Statistique ߜ</h6>
+                                        <ul class="homeStats">
+                                            <li class="card-text homeStatsTxt">Nombre de @parent.Nom : @(parent.Enfants.Count)</li>
+                                            <li class="card-text homeStatsTxt">Nombre de femmes : @(parent.Enfants.Count(e => e.Genre == "Féminin"))</li>
+                                            <li class="card-text homeStatsTxt">Nombre d'hommes : @(parent.Enfants.Count(e => e.Genre == "Masculin"))</li>
+                                        </ul>
+                                    </p><br>
+                                    <p class="card-text homeCardDesc">@parent.Description</p>
+                                </div>
                             </div>
                         </a>
                     </div>
                 </div>
-            }
-        </div>
+            </div>
+        }
+    </div>
 </div>
 

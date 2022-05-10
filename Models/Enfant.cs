@@ -69,24 +69,19 @@ namespace TP2_Tanguay_Zachary.Models
         public string Race { get; set; }
 
         /// <summary>
-        /// Retourne le lieu de naissance de l'enfant courant
-        /// </summary>
-        public string LieuDeNaissance { get; set; }
-
-        /// <summary>
-        /// Retourne le style de combat de l'enfant courant
-        /// </summary>
-        public string Abilites { get; set; }
-
-        /// <summary>
         /// Retourne si oui ou non l'enfant courant est un personnage vedette
         /// </summary>
-        public string EstVedette { get; set; }
+        public bool Vedette { get; set; }
 
         /// <summary>
         /// Retourne la description de l'enfant courant
         /// </summary>
         public string Description { get; set; }
+
+        /// <summary>
+        /// Retourne le role de l'enfant
+        /// </summary>
+        public string Role { get; set; }
         #endregion
     }
 }

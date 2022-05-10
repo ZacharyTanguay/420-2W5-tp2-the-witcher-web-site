@@ -1,0 +1,117 @@
+﻿.card {
+    background-color: #111111cc;
+    backdrop-filter: blur(20px);
+    padding: 0;
+    border: 2px solid #ff0000;
+    min-width: 100%;
+    max-width: 100%;
+    margin-left: 20px;
+}
+
+.card-header {
+    background-color: black;
+    border-bottom: 2px solid #ff0000;
+}
+
+.card:hover {
+    animation: formChangeBorderColor 3s ease-in-out infinite;
+}
+.card:hover > .card-header {
+    animation: createformChangeBorderColor 3s ease-in-out infinite;
+}
+
+
+
+/* Form */
+.createFormWrapper {
+    background-color: transparent;
+    opacity: 0.8;
+    margin-top: 30px;
+}
+
+.borderForm {
+    border: 2px groove darkred;
+}
+
+    .borderForm:focus {
+        background-color: black;
+        box-shadow: 0 0 20px red;
+        animation: formChangeBorderColor 3s ease-in-out infinite;
+    }
+
+    .borderForm:hover {
+        background-color: black;
+        box-shadow: 0 0 20px red;
+        animation: formChangeBorderColor 3s ease-in-out infinite;
+    }
+
+.form-control {
+    background-color: black;
+    color: white;
+    box-shadow: 0 0 30px black;
+}
+
+    .form-control::placeholder {
+        color: white;
+    }
+
+.formTitle {
+    font-family: Witcher;
+    font-weight: bold;
+    font-size: 20px;
+    animation: pageTitle 3s ease-in-out infinite;
+}
+
+.createFormTxt {
+    font-weight: lighter;
+    font-size: 2vmax;
+}
+.createFormTxt:focus {
+    color: white;
+}
+
+.formCheckboxWrapper {
+    background-color: black;
+    border: 2px groove darkred;
+    border-radius: 15px;
+    padding: 5px !important;
+    padding-left: 10px !important;
+}
+
+    .formCheckboxWrapper:hover {
+        background-color: black;
+        box-shadow: 0 0 20px red;
+        animation: formChangeBorderColor 3s ease-in-out infinite;
+    }
+
+.formTxtCheckbox {
+    font-weight: lighter;
+    text-align: center;
+}
+
+    .formTxtCheckbox:focus {
+        color: white;
+    }
+
+
+
+
+    
+/* Keyframes */
+@keyframes createformChangeBorderColor {
+    0% {
+        border-bottom: 2px solid #ff0000;
+    }
+
+    50% {
+        border-bottom: 2px solid #700505;
+    }
+
+    75% {
+        border-bottom: 2px solid darkred;
+    }
+
+    100% {
+        border-bottom: 2px solid #ff0000;
+    }
+}

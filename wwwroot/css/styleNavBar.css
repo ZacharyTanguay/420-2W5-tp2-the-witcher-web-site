@@ -1,6 +1,13 @@
-﻿.navbar {
+﻿
+
+
+
+
+/* Navbar */
+.navbar {
     background-color: black;
-    box-shadow: 0 0 20px black;
+    animation: navBarShadow 3s ease-in-out infinite;
+    justify-content: left;
 }
 
 .nav-link {
@@ -9,12 +16,22 @@
 
 .navBarMedallion {
     height: 50px;
-    filter: drop-shadow(0px 2px 1px darkred);
+    animation: navBarMedallion 3s ease-in-out infinite;
 }
 
+.nabBarIndex {
+    font-family: Witcher;
+    font-size: 20px;
+}
+
+
+
+
+
+/* Sword */
 .steelsword {
     position: absolute;
-    right: -5%;
+    right: -10%;
     top: 38%;
     transform: translateY(-50%);
     width: 450px;
@@ -23,14 +40,90 @@
     transition: top 0.2s ease-out;
 }
 
+
+
+
+
+/* Media */
 @media (min-width: 992px) {
     #sword {
-        display: none;
+        display: none !important;
     }
 }
 
 @media (max-width: 992px) {
     #medallionWolfSchool2 {
         display:none !important;
+    }
+}
+
+@media (min-width: 0px) and (max-width: 576px) {
+    #sword {
+        display: none !important;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    #sword {
+        right: -10%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    #sword {
+        right: -10%;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    #navbarNav {
+        justify-content: center;
+    }
+}
+
+@media (min-width: 1200px) {
+    #navbarNav {
+        justify-content: center;
+    }
+}
+
+
+
+
+
+/* Keyframes */
+@keyframes navBarMedallion {
+    0% {
+        filter: drop-shadow(0px 2px 1px #ff0000);
+    }
+
+    50% {
+        filter: drop-shadow(0px 2px 1px #700505);
+    }
+
+    75% {
+        filter: drop-shadow(0px 2px 1px darkred);
+    }
+
+    100% {
+        filter: drop-shadow(0px 2px 1px #ff0000);
+    }
+}
+
+@keyframes navBarShadow {
+    0% {
+        box-shadow: 0 0 20px #ff0000;
+    }
+
+    50% {
+        box-shadow: 0 0 20px #700505;
+    }
+
+    75% {
+        box-shadow: 0 0 20px darkred;
+    }
+
+    100% {
+        box-shadow: 0 0 20px #ff0000;
     }
 }

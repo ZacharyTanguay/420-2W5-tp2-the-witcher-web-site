@@ -1,0 +1,143 @@
+﻿@model TP2_Tanguay_Zachary.Models.Enfant
+
+@{
+    Layout = "_LayoutAjouterPerso";
+}
+
+@section BackgroundDiff {
+    <style>
+        body {
+            background-image: url(../images/Background_4.webp);
+            height: 100%;
+        }
+    </style>
+}
+
+@section activeAjouterPerso {
+    active
+}
+
+@{
+    ViewData["pageTitle"] = "TheWitcher.ca : Create";
+    ViewData["Title"] = "Creation de personnage";
+}
+<br />
+<form asp-action="Create" class="createFormWrapper txtWhite">
+    <div class="row">
+        <div class="col-md-8">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="col-5">
+                    <div class="row mr-2">
+                        <div class="card">
+                            <div class="card-header createFormTxt txtCenter">
+                                Identite du personnage
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label asp-for="NomComplet" class="control-label formTitle">Nom</label>
+                                    <input asp-for="NomComplet" class="form-control borderForm formTxt" placeholder="  Saisir le nom" />
+                                    <span asp-validation-for="NomComplet" class="text-danger"></span>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="Nom" class="control-label formTitle">Prenom</label>
+                                        <input asp-for="Nom" class="form-control borderForm formTxt" placeholder="  Saisir le prénom" />
+                                        <span asp-validation-for="Nom" class="text-danger"></span>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="Surnom" class="control-label formTitle">Surnom</label>
+                                        <input asp-for="Surnom" class="form-control borderForm formTxt" placeholder="  Saisir le ou les surnoms" />
+                                        <span asp-validation-for="Surnom" class="text-danger"></span>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="Age" class="control-label formTitle">Age</label>
+                                        <input asp-for="Age" class="form-control borderForm" />
+                                        <span asp-validation-for="Age" class="text-danger"></span>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="Genre" class="control-label formTitle">Genre</label>
+                                        <input asp-for="Genre" class="form-control borderForm" />
+                                        <span asp-validation-for="Genre" class="text-danger"></span>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="Race" class="control-label formTitle">Race</label>
+                                        <input asp-for="Race" class="form-control borderForm" />
+                                        <span asp-validation-for="Race" class="text-danger"></span>
+                                    </div>
+                                    <br />
+                                    <br />
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-header createFormTxt txtCenter">
+                                Portrait du personnage
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label asp-for="ImageURL1" class="control-label formTitle">Image URL 1</label>
+                                    <input asp-for="ImageURL1" class="form-control borderForm" />
+                                    <span asp-validation-for="ImageURL1" class="text-danger"></span>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label asp-for="ImageURL2" class="control-label formTitle">Image URL 2</label>
+                                    <input asp-for="ImageURL2" class="form-control borderForm" />
+                                    <span asp-validation-for="ImageURL2" class="text-danger"></span>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label asp-for="ImageURL3" class="control-label formTitle">Image URL 3</label>
+                                    <input asp-for="ImageURL3" class="form-control borderForm" />
+                                    <span asp-validation-for="ImageURL3" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-header createFormTxt txtCenter">
+                                Détail du personnage
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input borderForm" asp-for="Vedette"/>
+                                    <label class="form-check-label formTitle"> test</label>
+                                </div>
+                                <br />
+                                <div class="form-group">
+                                    <label asp-for="Description" class="control-label formTitle">Description</label>
+                                    <input asp-for="Description" class="form-control borderForm" />
+                                    <span asp-validation-for="Description" class="text-danger"></span>
+                                </div>
+                                <br>
+                                <div class="form-group">
+                                    <label asp-for="Role" class="control-label formTitle">Role</label>
+                                    <input asp-for="Role" class="form-control borderForm" />
+                                    <span asp-validation-for="Role" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="form-group">
+            <input type="submit" value="Ajouter" class="btn btn-primary" />
+        </div>
+    </div>
+</form>
+

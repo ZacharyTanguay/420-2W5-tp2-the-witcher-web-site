@@ -1,4 +1,8 @@
 ﻿@using TP2_Tanguay_Zachary.Models;
+@using Microsoft.AspNetCore.Http;
+@using System.Text.Json;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model TP2_Tanguay_Zachary.ViewModels.PageRechercheViewModel
 
 @{
     Layout = "_Layout";
@@ -8,116 +12,197 @@
     <style>
         body {
             background-image: url(../images/Background_4.webp);
-            height: auto;
+            height: 100%;
         }
     </style>
 }
 
-@model List<Enfant>;
-
 @{
     Random random = new Random();
-    var modelMélangé = Model.OrderBy(m => random.Next());
+    var modelMélangé = Model.Resultat.OrderBy(m => random.Next());
 }
-
 @section activeRecherche {
     active
 }
-
-
 @{
-    ViewData["title"] = "Recherche";
+    ViewData["pageTitle"] = "TheWitcher.ca : Recherche";
+    ViewData["Title"] = "Liste des personnages";
 }
 
+
 <!-- PAGE : RECHERCHE -->
-<div class="background">
-    <!-- Espacement -->
-    <br>
-    <h1 class="titrePage texteEnBlanc text-center"><em><b>LISTES DES PERSONNAGES</b></em></h1>
-    <br>
-    <!-- Espacement -->
+
+
+<div>
     <div class="row mr-2">
-        <!--FORMULAIRE-->
-        <div class="col-12 col-md-3 col-lg-4 order-1 order-md-2 ml-2">
-            <form action="https://www.w3schools.com/action_page.php" class="conteneurFormRecherche texteEnBlanc mb-4">
+        <div class="col-12 col-md-8 col-lg-2 col-xl-3 order-1 order-lg-3">
+            <form action="/Enfant/Filtrer" method="get" class="searchFormWrapper txtWhite mb-4">
+                <!--Début formulaire-->
+
                 <br><!--Espace-->
+
                 <div class="form-row form-group">
-                    <!--Début propriété de type texte en lien avec les entités enfants-->
+                    <!--Début propriété de type texte en lien avec les entités Enfants-->
                     <div class="col">
-                        <label for="rechercheMotsClés" class="texteForm">Recherche par mots-clés</label>
-                        <input type="text" id="rechercheMotsClés" name="mots-clés" class="form-control" placeholder="Saisir un ou des mots-clés">
+                        <label for="MotsCles" class="formTitle">Recherche par mots-cles</label>
+                        <input type="text" id="MotsCles" name="MotsCles" class="form-control formTxt borderForm" placeholder="Saisir un ou des mots-clés" value="@Model.Criteres.MotsCles">
                     </div>
-                </div><!--Fin propriété de type texte en lien avec les entités enfants-->
+                </div><!--Fin propriété de type texte en lien avec les entités Enfants-->
+
                 <br><!--Espace-->
+
                 <div class="form-row form-group">
-                    <!--Début propriété de type numérique en lien avec les entités enfants-->
+                    <!--Début propriété de type numérique en lien avec les entités Enfants-->
                     <div class="col-12">
-                        <label for="âgePersonnage" class="texteForm">Âge du personnage</label>
+                        <label for="agePersonnage" class="formTitle">Age du personnage</label>
                     </div>
                     <div class="col-6 form-group">
-                        <input type="number" id="âgePersonnageM" name="âge" min="1" max="10000" class="form-control" placeholder="Min">
+                        <input type="number" id="agePersonnage" name="AgePersonnageMin" min="1" max="10000" class="form-control formTxt borderForm" placeholder="Min" value="@Model.Criteres.AgePersonnageMin">
                     </div>
                     <div class="col-6 form-group">
-                        <input type="number" id="âgePersonnage" name="âge" min="1" max="10000" class="form-control" placeholder="Max">
-                    </div><!--Fin propriété de type numérique en lien avec les entités enfants -->
+                        <input type="number" id="agePersonnage" name="AgePersonnageMax" min="1" max="10000" class="form-control formTxt borderForm" placeholder="Max" value="@Model.Criteres.AgePersonnageMax">
+                    </div><!--Fin propriété de type numérique en lien avec les entités Enfants -->
                 </div>
+
                 <br><!--Espace-->
+
                 <div class="form-row form-group">
                     <!--Début liste déroulante portant sur le fait que l’entité enfant est une entité vedette (Peu importe/Oui/Non)-->
                     <div class="col">
-                        <label for="personnageVedette" class="texteForm">Personnage Vedette</label>
-                        <select name="choixPersonnageVedette" id="personnageVedette" class="form-control">
-                            <option value="choixPeuImporte" selected>Peu importe</option>
-                            <option value="choixOui">Oui</option>
-                            <option value="choixNon">Non</option>
+                        <label for="personnageVedette" class="formTitle">Personnage Vedette</label>
+                        <select name="choixPersonnageVedette" id="ChoixPersonnageVedette" class="form-control formTxt borderForm">
+                            @if (Model.Criteres.ChoixPersonnageVedette == "")
+                            {
+                                <option value="" selected>Peu importe, je veux afficher tout les personnages</option>
+                            }
+                            else
+                            {
+                                <option value="">Peu importe, je veux afficher tout les personnages</option>
+                            }
+
+                            @if (Model.Criteres.ChoixPersonnageVedette == "true")
+                            {
+                                <option value="true" selected>Oui, je veux que les personnages vedettes</option>
+                            }
+                            else
+                            {
+                                <option value="true">Oui, je veux que les personnages vedettes</option>
+                            }
+
+                            @if (Model.Criteres.ChoixPersonnageVedette == "false")
+                            {
+                                <option value="false" selected>Non, je ne veux aucun personnages vedettes</option>
+                            }
+                            else
+                            {
+                                <option value="false">Non, je ne veux aucun personnages vedettes</option>
+                            }
                         </select>
                     </div>
                 </div><!--Fin liste déroulante portant sur le fait que l’entité enfant est une entité vedette (Peu importe/Oui/Non)-->
+
                 <br><!--Espace-->
+
                 <div class="form-row form-group">
                     <!--début checkbok pour représenter les entités parents (coché par défaut)-->
                     <div class="col">
-                        <input type="checkbox" checked name="rois" id="corps1">
-                        <label for="corps1" class="texteForm">Rois / Reines</label><br>
-                        <input type="checkbox" checked name="Magiciennes" id="corps2">
-                        <label for="corps2" class="texteForm">Magiciens / Magiciennes</label><br>
-                        <input type="checkbox" checked name="Sorceleurs" id="corps3">
-                        <label for="corps3" class="texteForm">Sorceleurs / Sorceleuses</label><br>
-                    </div>
+                        <label for="classePersonnage" class="formTitle">Categorie du personnage</label>
+                    </div><br>
+                          <div class="col-12 formCheckboxWrapper">
+
+                              <input type="checkbox" @(Model.Criteres.Rois ? "checked" : "") name="Rois" id="Rois" value="true">
+                              <label for="Rois" class="formTxtCheckbox">Rois / Reines</label><br>
+
+                              <input type="checkbox" @(Model.Criteres.Magiciennes ? "checked" : "") name="Magiciennes" id="Magiciennes" value="true">
+                              <label for="Magiciennes" class="formTxtCheckbox">Magiciens / Magiciennes</label><br>
+
+                              <input type="checkbox" @(Model.Criteres.Sorceleurs ? "checked" : "") name="Sorceleurs" id="Sorceleurs" value="true">
+                              <label for="Sorceleurs" class="formTxtCheckbox">Sorceleurs / Sorceleuses</label><br>
+                          </div>
                 </div><!-- Fin checkbok pour représenter les entités parents (coché par défaut -->
+
                 <div class="form-row">
-                    <div class="col-auto"><button type="reset" class="btn-secondary boutonRecherche">Réinitialiser</button></div>
-                    <div class="col-auto"><button type="submit" class="btn-primary boutonRecherche">Rechercher</button></div>
+                    <div class="col-auto formTxt"><button type="reset" class="btn-secondary boutonRecherche"><i class="fas fa-redo"></i> Réinitialiser</button></div>
+                    <div class="col-auto formTxt"><button type="submit" class="btn-primary boutonRecherche">Rechercher<i class="fas fa-search"></i></button></div>
                 </div>
-            </form>
+                <div class="row">
+                    <div class="col">
+                        <!--bannerFlag-->
+                        <img class="img-fluid bannerLogo" src="/images/wolfSchoolMedallion.png" alt="Third slide">
+                    </div>
+                </div>
+            </form><!--Fin formulaire-->
         </div>
-        <div class="col order-2 order-md-1">
-            <!-- RANGÉE 1-->
+        <div class="col-4 order-1">
+            <!--bannerFlag-->
+            <img class="img-fluid bannerFlag" src="/images/BannerFlag.png" alt="Third slide">
+        </div>
+
+
+        <div class="col-12 display-lg-none order-1"></div>
+
+
+        <div class="col order-3 order-md-1">
             <div class="row rowImageRecherche ml-2">
-                @foreach (var Enfants in modelMélangé)
-                {
-                    <div class="col-8 col-md-3">
-                        <!--Colonne 1-->
-                        <div class="conteneurImageRecherche mt-5 ml-1">
-                            <a href="/Enfant/Détail/@Enfants.Id" class="liensInvisible">
-                                <div class="nomPersonnageRecherche"><i>@Enfants.Nom</i></div>
-                                <div class="rolePersonnageRecherche"><i>@Enfants.Parent.Nom</i></div>
-                                <div id="carouselVesemir" class="carousel slide" data-ride="carousel">
-                                    <div class="carousel-inner ImageRecherche">
-                                        <div class="carousel-item active">
-                                            <img class="imageRecherche d-block w-100" src="@Enfants.ImageURL1" alt="First slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="imageRecherche d-block w-100" src="@Enfants.ImageURL2" alt="Second slide">
-                                        </div>
-                                        <div class="carousel-item">
-                                            <img class="imageRecherche d-block w-100" src="@Enfants.ImageURL3" alt="Third slide">
+                <!-- Rangée-->
+                @{int idCarousel = 0;
+                    foreach (Enfant Enfants in modelMélangé)
+                    {
+                        <div class="col-12 col-sm-6 col-md-4 col-xl-3">
+                            <!--Colonne-->
+                            <div class="searchCardWrapper mt-5 ml-1">
+                                <div class="dropdown searchCardRemoveIcon">
+                                    <button class="dropbtn"><i class="fas fa-minus"></i></button>
+                                    <div class="dropdown-content">
+                                        <h2 class="dropdownMenuTitle">Options</h2>
+                                        <a href="#">Editer @Enfants.Nom</a>
+                                        <a href="#">Supprimer @Enfants.Nom</a>
+                                        <a href="#">Ajouter @Enfants.Nom au favoris</a>
+                                        <div class="dropdownMenuDesc">
+                                            <div>
+                                                Nom<br />
+                                                <i class="fas fa-chevron-right"></i> @Enfants.Nom
+                                            </div><br />
+                                            <div>
+                                                Nom Complet<br />
+                                                <i class="fas fa-chevron-right"></i> @Enfants.NomComplet
+                                            </div><br />
+                                            <div>
+                                                Genre : @Enfants.Genre <br />
+                                            </div><br />
+                                            <div>
+                                                Âge : @Enfants.Age <br />
+                                            </div><br />
                                         </div>
                                     </div>
                                 </div>
-                            </a>
+                                <a href="/Enfant/Détail/@Enfants.Id" class="links">
+                                    <div class="searchCharacterName"><i>@Enfants.Nom</i></div>
+                                    <div class="searchCharacterRole"><i>@Enfants.Role</i></div>
+                                    <div id="@idCarousel" class="carousel slide">
+                                        <div class="carousel-inner searchCardImg">
+                                            <div class="carousel-item active">
+                                                <img class="searchImg d-block w-100" src="@Enfants.ImageURL1" alt="First slide"><!--1er image du carousel-->
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="searchImg d-block w-100" src="@Enfants.ImageURL2" alt="Second slide"><!--2e image du carousel-->
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="searchImg d-block w-100" src="@Enfants.ImageURL3" alt="Third slide"><!--3e image du carousel-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
                         </div>
-                    </div>
+                        idCarousel++;
+                    }
+                }
+                @if (Model.Resultat.Count() == 0)
+                {
+                    <p>
+                        Aucun perso ne correspond à sait critères de recherche
+                    </p>
                 }
             </div>
         </div>

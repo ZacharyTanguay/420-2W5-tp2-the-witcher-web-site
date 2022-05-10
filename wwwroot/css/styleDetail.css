@@ -1,0 +1,16 @@
+﻿
+
+
+
+
+.detailCardWrapper {
+    border: 1px solid red;
+    margin: 50px;
+    box-shadow: 0 0 30px black;
+    animation: cardAnimation1 1s ease-in-out infinite;
+}
+.detailCardWrapper:hover {
+    box-shadow: 0 0 20px red;
+    filter: grayscale(0.30);
+    animation: none;
+}

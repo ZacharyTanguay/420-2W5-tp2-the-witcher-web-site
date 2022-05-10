@@ -1,1 +1,210 @@
 ﻿
+
+
+
+
+/* Card */
+.card {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    padding-right: 4px;
+    width: 30vw;
+}
+
+.card-decks {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.card-body {
+    word-break: break-all;
+}
+
+
+
+
+
+/* HomeCard */
+.homeCardTitle {
+    margin-bottom: 20px;
+    filter: drop-shadow(0px 0px 2px whitesmoke);
+}
+
+.homeCardTitle {
+    filter: drop-shadow(0px 0px 2px #ff0000);
+}
+
+.homeCardRow {
+    margin-top: 30px;
+}
+
+.homeCardDesc {
+    height: 120px;
+    padding: 0px 20px 0px 0px;
+    overflow-y: scroll;
+    cursor: row-resize;
+    box-shadow: 0 -10px 15px -4px inset #19191a;
+}
+.homeCardDesc::-webkit-scrollbar {/*La scroll bar du overflow du body*/
+    display: none;
+}
+
+.homeCardWrapper {
+    border: 2px solid darkred;
+    background-color: black;
+    opacity: 0.9;
+    animation: borderColorChange1 3s ease-in-out infinite;
+    transition: opacity 0.2s ease-in-out;
+    box-shadow: 0 0 30px white;
+}
+.homeCardWrapper:hover {
+    animation: cardAnimation1 1s ease-in-out 0.2s infinite;
+    opacity: 1.0;
+    box-shadow: 0 0 30px red;
+}
+
+.homeCardBackground {
+    background-color: black;
+}
+
+.homeImgContainer {
+    text-align: center;
+    filter: drop-shadow(0px 0px 2px whitesmoke);
+}
+
+.homeCardImg {
+    height: 400px;
+    max-width: 100%;
+    user-select: none;
+    object-fit: cover;
+    object-position: top;
+    margin-top: 10px;
+}
+
+.homeStats {
+    list-style-type: none; /*Cache les "bullets" de la list*/
+    padding-inline-start: 0;
+    white-space: nowrap;
+}
+
+
+
+
+
+/* Text */
+.links {
+    color: whitesmoke;
+    text-decoration: none;
+}
+
+.links:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.homeCardTitle {
+    font-family: Witcher;
+    text-decoration: none;
+}
+
+
+
+
+
+/* @Media */
+@media (min-width: 0px) and (max-width: 576px) {
+    .card {
+        width: 95vw;
+        margin-bottom: 50px;
+    }
+    .card:hover {
+        width: 100vw;
+    }
+    .homeCardWrapper {
+        animation: cardAnimation1 1s ease-in-out 0.2s infinite;
+        opacity: 1.0;
+        box-shadow: 0 0 30px red;   
+    }
+    .homeStats {
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+    .card {
+        width: 50vw;
+        margin-bottom: 50px;
+    }
+    .card:hover {
+        width: 53vw;
+    }
+    .homeCardTitle {
+        font-size: 130%;
+    }
+    .homeCardWrapper {
+        animation: cardAnimation1 1s ease-in-out 0.2s infinite;
+        opacity: 1.0;
+        box-shadow: 0 0 30px red;
+    }
+    .homeStats {
+        font-size: 20px;
+        padding-left: 0px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    .card {
+        width: 50vw;
+        margin-bottom: 50px;
+    }
+    .card:hover {
+        width: 53vw;
+    }
+    .homeCardTitle {
+        font-size: 100%;
+    }
+    .homeCardWrapper:hover {
+        animation: cardAnimation1 1s ease-in-out 0.2s infinite;
+        opacity: 1.0;
+        box-shadow: 0 0 30px red;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+    .card {
+        width: 25vw;
+    }
+    .card:hover {
+        width: 27vw;
+    }
+    .homeCardTitle {
+        font-size: 100%;
+    }
+    .homeCardWrapper:hover {
+        animation: cardAnimation1 1s ease-in-out 0.2s infinite;
+        opacity: 1.0;
+        box-shadow: 0 0 30px red;
+    }
+}
+
+@media (min-width: 1200px) {
+    .card {
+        width: 70%;
+    }
+
+    .card:hover {
+        width: 80%;
+    }
+    .homeCardTitle {
+        font-size: 150%;
+    }
+    .homeCardWrapper:hover {
+        animation: cardAnimation1 1s ease-in-out 0.2s infinite;
+        opacity: 1.0;
+        box-shadow: 0 0 30px red;
+    }
+}

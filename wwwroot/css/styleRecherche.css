@@ -1,0 +1,234 @@
+﻿
+
+
+
+
+/* Card */
+.carousel {
+	z-index: -1;
+}
+
+.searchCardWrapper {
+	position: relative;
+	transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+	justify-content: center !important;
+	border: 4px groove darkred;
+	border-radius: 20px;
+}
+
+.searchCardWrapper:hover {
+	animation: cardAnimation1 1s ease-in-out infinite, borderColorChange2 3s ease-in-out infinite;
+	border-radius: 20px;
+	box-shadow: 0 0 50px red;
+}
+
+.searchCardImg {
+	max-width: 100%;
+	user-select: none;
+	border-radius: 15px;
+}
+
+.searchImg {
+	box-shadow: 0 0 20px black;
+	height: 350px;
+	object-fit: cover;
+	object-position: top;
+	width: 100%;
+}
+
+
+
+
+
+/* Character */
+.searchCardWrapper:hover > a > .searchCharacterName, .searchCardWrapper:hover > a > .searchCharacterRole {
+	background-color: black;
+	opacity: 1.0;
+}
+
+.searchCharacterName {
+	position: absolute;
+	top: 8px;
+	left: 8px;
+	border-radius: 10px;
+	box-shadow: 0 0 20px black;
+	padding: 5px;
+	background-color: gray;
+	color: white;
+	opacity: 0.7;
+	transition: 1s;
+	font-family: Witcher !important;
+}
+
+.searchCharacterRole {
+	position: absolute;
+	bottom: 8px;
+	right: 8px;
+	border-radius: 10px;
+	box-shadow: 0 0 20px black;
+	padding: 5px;
+	background-color: grey;
+	color: white;
+	opacity: 0.7;
+	transition: 1s;
+	font-family: Witcher;
+}
+
+.searchCardRemoveIcon {
+	position: absolute;
+	top: 8px;
+	right: 15px;
+	color: white;
+	opacity: 1.0;
+	transition: 0.5s;
+	font-family: Witcher;
+}
+.searchCardRemoveIcon:hover {
+	color: red;
+}
+
+
+
+
+
+/* Form */
+.searchFormWrapper {
+	background-color: transparent;
+	opacity: 0.8;
+	margin-top: 30px;
+}
+
+.borderForm {
+	border: 2px groove darkred;
+}
+.borderForm:focus {
+	background-color: black;
+	box-shadow: 0 0 20px red;
+	animation: formChangeBorderColor 3s ease-in-out infinite;
+}
+.borderForm:hover {
+	background-color: black;
+	box-shadow: 0 0 20px red;
+	animation: formChangeBorderColor 3s ease-in-out infinite;
+}
+
+.form-control {
+	background-color: black;
+	color: white;
+	box-shadow: 0 0 30px black;
+}
+
+.form-control::placeholder {
+	color: white;
+}
+
+.formTitle {
+	font-family: Witcher;
+	font-weight: bold;
+	font-size: 20px;
+	animation: pageTitle 3s ease-in-out infinite;
+}
+
+.formTxt {
+	font-weight: lighter;
+}
+.formTxt:focus {
+	color: white;
+}
+
+.formCheckboxWrapper {
+	background-color: black;
+	border: 2px groove darkred;
+	border-radius: 15px;
+	padding: 5px !important;
+	padding-left: 10px !important;
+	
+}
+.formCheckboxWrapper:hover {
+	background-color: black;
+	box-shadow: 0 0 20px red;
+	animation: formChangeBorderColor 3s ease-in-out infinite;
+}
+
+.formTxtCheckbox {
+	font-weight: lighter;
+	text-align: center;
+}
+.formTxtCheckbox:focus {
+	color: white;
+}
+
+
+
+
+
+/* Banner */
+.bannerLogo {
+	user-select: none;
+}
+
+.bannerFlag {
+	user-select: none;
+}
+
+@media (min-width: 0px) and (max-width: 768px) {
+	.bannerFlag {
+		display: none;
+	}
+
+	.bannerLogo {
+		display: none;
+	}
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+	.bannerFlag {
+		position: relative;
+		bottom: 15px;
+		z-index: -1;
+		filter: drop-shadow(0px 10px 15px black);
+	}
+
+	.bannerLogo {
+		display: none;
+	}
+}
+
+@media (min-width: 992px) {
+	.bannerFlag {
+		display: none;
+	}
+}
+
+@media (min-width: 1200px) {
+	.bannerLogo {
+		margin-top: 20px;
+		position: relative;
+		filter: drop-shadow(0px 2px 10px red);
+		animation: filterColorChange 3s ease-in-out infinite;
+		backdrop-filter: blur(100px);
+	}
+}
+
+
+
+
+
+/* Keyframes */
+@keyframes formChangeBorderColor {
+	0% {
+		border: 2px solid #ff0000;
+	}
+
+	50% {
+		border: 2px solid #700505;
+	}
+
+	75% {
+		border: 2px solid darkred;
+	}
+
+	100% {
+		border: 2px solid #ff0000;
+	}
+}

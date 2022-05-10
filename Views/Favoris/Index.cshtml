@@ -1,11 +1,18 @@
-﻿@{
+﻿@using TP2_Tanguay_Zachary.Models;
+@using Microsoft.AspNetCore.Http;
+@using System.Text.Json;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@model List<Enfant>
+
+@{
     Layout = "_Layout";
 }
 
 @section BackgroundDiff {
     <style>
         body {
-            background-image: url(../images/Background_1.jpg);
+            background-image: url(../images/Background_4.webp);
         }
     </style>
 }
@@ -15,7 +22,8 @@
 }
 
 @{
-    ViewData["title"] = "Favoris";
+    ViewData["pageTitle"] = "TheWitcher.ca : Favoris";
+    ViewData["Title"] = "Personnages favoris";
 }
 
 <!-- PAGE : FAVORIS -->
@@ -23,10 +31,7 @@
 <div class="text-center">
 
     <!-- Espacement -->
-    <br>
-    <h1 class="titrePage texteEnBlanc text-center"><em>FAVORIS</em></h1>
     <p class="titrePage text-center">Vous avez <b>4 personnages</b> en favoris</p>
-    <br>
     <!-- Espacement -->
 
     <form action="https://www.w3schools.com/action_page.php" class="form-check-inline">
@@ -44,28 +49,34 @@
                         <th scope="row"><img src="/images/Geralt_2.jpg" class="tailleImageFavoris" alt=""></th>
                         <td><a href="/Enfant/Detail">Geralt de Riv</a></td>
                         <td>Sorceleurs</td>
-                        <td><button type="submit" class="btn-dark"><i class="fas fa-trash-alt"></i></button></td>
+                        <td><button type="submit" class="btn-dark"><i class="fas fa-user-times"></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row"><img src="/images/Yen_2.webp" class="tailleImageFavoris" alt=""></th>
                         <td><a href="/Enfant/Detail">Yennefer de Vangerberg</a></td>
                         <td>Magiciennes</td>
-                        <td><button type="submit" class="btn-dark"><i class="fas fa-trash-alt"></i></button></td>
+                        <td><button type="submit" class="btn-dark"><i class="fas fa-user-times"></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row"><img src="/images/Vesemir_1.jpg" class="tailleImageFavoris" alt=""></th>
                         <td><a href="/Enfant/Detail">Vesemir</a></td>
                         <td>Sorceleurs</td>
-                        <td><button type="submit" class="btn-dark"><i class="fas fa-trash-alt"></i></button></td>
+                        <td><button type="submit" class="btn-dark"><i class="fas fa-user-times"></i></button></td>
                     </tr>
                     <tr>
                         <th scope="row"><img src="/images/Triss_1.jpg" class="tailleImageFavoris" alt=""></th>
                         <td><a href="/Enfant/Detail">Triss Merigold</a></td>
                         <td>Magiciennes</td>
-                        <td><button type="submit" class="btn-dark"><i class="fas fa-trash-alt"></i></button></td>
+                        <td><button type="submit" class="btn-dark"><i class="fas fa-user-times"></i></button></td>
                     </tr>
                 </tbody>
             </table>
         </div>
+    </form>
+</div>
+
+<div class="txtCenter">
+    <form action="/Enfant/Détail/" method="get">
+
     </form>
 </div>

@@ -23,11 +23,23 @@
     </style>
 }
 
-<div class="container-fluid background">
+@{
+    ViewData["pageTitle"] = "TheWitcher.ca : Détail";
+    ViewData["Title"] = "Detail du personnage \t" + Model.Nom;
+}
+
+<div>
     <form action="https://www.w3schools.com/action_page.php">
-        <br><!-- Espacement -->
-        <h1 class="titrePage texteEnBlanc text-center"><em><b>Détails du personnage @Model.Nom</b></em></h1>
-        <br><!-- Espacement -->
+        <div class="row">
+            <div class="col-12">
+                <div class="detailCardWrapper">
+                    <img src="@Model.ImageURL1" class="img-fluid " alt="Portrait de @Model.Nom">
+                </div>
+            </div>
+        </div>
+
+
+
         <div class="row">
             <div class="col-md-4">
                 <div class="conteneurImageDetail">
