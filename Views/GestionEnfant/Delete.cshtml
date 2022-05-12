@@ -1,0 +1,144 @@
+﻿@using TP2_Tanguay_Zachary.Models;
+@model TP2_Tanguay_Zachary.Models.Enfant
+
+@{
+    ViewData["pageTitle"] = "TheWitcher.ca : Delete";
+    ViewData["Title"] = "Delete";
+}
+
+@section BackgroundDiff {
+    <style>
+        body {
+            background-image: url(/images/Background_4.webp);
+            height: 100%;
+        }
+    </style>
+}
+
+@{
+    Layout = "_LayoutAjouterPerso";
+}
+
+<div class="row" style="justify-content:center;">
+    <div class="col-sm-8 col-lg-6">
+        <div class="createFormWrapper txtWhite">
+            <div class="card">
+                <div class="card-header createFormTxt txtCenter">
+                    Suppression d'un personnage
+                </div>
+                <h5 class="txtCenter">Personnage</h5>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            <div class="row">
+                                <div>
+                                    <hr />
+                                    <br />
+                                    <dl class="row txtRight">
+                                        <dt class="col-5">
+                                            @Html.DisplayNameFor(model => model.Id)
+                                        </dt>
+                                        <dd class="col-7">
+                                            @Html.DisplayFor(model => model.Id)
+                                        </dd>
+                                    </dl>
+                                    <dl class="row txtRight">
+                                        <dt class="col-5">
+                                            @Html.DisplayNameFor(model => model.IdParent)
+                                        </dt>
+                                        <dd class="col-7">
+                                            @Html.DisplayFor(model => model.IdParent)
+                                        </dd>
+                                    </dl>
+                                    <dl class="row txtRight">
+                                        <dt class="col-5">
+                                            @Html.DisplayNameFor(model => model.Nom)
+                                        </dt>
+                                        <dd class="col-7">
+                                            @Html.DisplayFor(model => model.Nom)
+                                        </dd>
+                                    </dl>
+                                    <dl class="row txtRight">
+                                        <dt class="col-5">
+                                            @Html.DisplayNameFor(model => model.Genre)
+                                        </dt>
+                                        <dd class="col-7">
+                                            @Html.DisplayFor(model => model.Genre)
+                                        </dd>
+                                    </dl>
+                                    <dl class="row txtRight">
+                                        <dt class="col-5">
+                                            @Html.DisplayNameFor(model => model.Role)
+                                        </dt>
+                                        <dd class="col-7">
+                                            @Html.DisplayFor(model => model.Role)
+                                        </dd>
+                                    </dl>
+                                    <dl class="row txtRight">
+                                        <dt class="col-5">
+                                            @Html.DisplayNameFor(model => model.ImageURL1)
+                                        </dt>
+                                        <dd class="col-7">
+                                            @Html.DisplayFor(model => model.ImageURL1)
+                                        </dd>
+                                    </dl>
+                                    <dl class="row txtRight">
+                                        <dt class="col-5">
+                                            @Html.DisplayNameFor(model => model.ImageURL2)
+                                        </dt>
+                                        <dd class="col-7">
+                                            @Html.DisplayFor(model => model.ImageURL2)
+                                        </dd>
+                                    </dl>
+                                    <dl class="row txtRight">
+                                        <dt class="col-5">
+                                            @Html.DisplayNameFor(model => model.ImageURL3)
+                                        </dt>
+                                        <dd class="col-7">
+                                            @Html.DisplayFor(model => model.ImageURL3)
+                                        </dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="row rowImageRecherche ml-2">
+                                <div class="searchCardWrapper mt-5 ml-1">
+                                    <div class="carousel slide">
+                                        <div class="carousel-inner searchCardImg">
+                                            <div class="carousel-item active">
+                                                <img class="searchImg d-block w-100" src="@Html.DisplayFor(model => model.ImageURL1)" alt="First slide">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="searchImg d-block w-100" src="@Html.DisplayFor(model => model.ImageURL2)" alt="Second slide">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="searchImg d-block w-100" src="@Html.DisplayFor(model => model.ImageURL3)" alt="Third slide">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="addButtonWrapper">
+                    <div class="row addButtonTxt">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row txtCenter mr-1">
+                                        <h6 class="m-2">Voulez-vous vraiment supprimer ce personnage ?</h6>
+                                        <form asp-action="Delete" class="form-group">
+                                            <input type="submit" value="Supprimer" class="btn btn-danger txtWhite" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -10,6 +10,13 @@ namespace TP2_Tanguay_Zachary.Controllers
 {
     public class GestionEnfantController : Controller
     {
+        private Database DB { get; set; }
+
+        public GestionEnfantController(Database db)
+        {
+            this.DB = db;
+        }
+
         // GET: GestionEnfantController
         public ActionResult Index()
         {
@@ -23,7 +30,7 @@ namespace TP2_Tanguay_Zachary.Controllers
         }
 
         // GET: GestionEnfantController/Create
-        public ActionResult Create(Enfant pEnfant)
+        public ActionResult Create()
         {
             return View();
         }
@@ -31,16 +38,19 @@ namespace TP2_Tanguay_Zachary.Controllers
         // POST: GestionEnfantController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Enfant pEnfant)
         {
-            try
+            if (pEnfant == null)
             {
-                return RedirectToAction(nameof(Index));
+                pEnfant = new Enfant();
             }
-            catch
-            {
-                return View();
-            }
+            int idMax = DB.Enfants.Max(e => e.Id) + 1;
+            Parent parent = DB.Parents.Where(p => p.Id == pEnfant.IdParent).SingleOrDefault();
+            pEnfant.Id = idMax;
+            pEnfant.Parent = parent;
+            parent.Enfants.Add(pEnfant);
+            DB.Enfants.Add(pEnfant);
+            return RedirectToAction("Index", "Home");
         }
 
         // GET: GestionEnfantController/Edit/5
@@ -64,25 +74,36 @@ namespace TP2_Tanguay_Zachary.Controllers
             }
         }
 
-        // GET: GestionEnfantController/Delete/5
+        [HttpGet]
+        // GET: GestionEnfantController/Delete
         public ActionResult Delete(int id)
         {
-            return View();
+            Enfant enfant = DB.Enfants.Where(p => p.Id == id).SingleOrDefault();
+
+            if (enfant == null)
+            {
+                return View("NotFound");
+            }
+
+            return View(enfant);
         }
 
-        // POST: GestionEnfantController/Delete/5
+        // POST: GestionEnfantController/Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Enfant pEnfant)
         {
-            try
+            Enfant enfant = DB.Enfants.Where(e => e.Id == pEnfant.Id).SingleOrDefault();
+            if (enfant == null)
             {
-                return RedirectToAction(nameof(Index));
+                return View("NotFound");
             }
-            catch
-            {
-                return View();
-            }
+            Parent parent = DB.Parents.Where(p => p.Id == enfant.IdParent).SingleOrDefault();
+            enfant.Parent = parent;
+            parent.Enfants.Remove(enfant);
+            DB.Enfants.Remove(enfant);
+
+            return RedirectToAction("Index", "Home");
         }
     }
 }

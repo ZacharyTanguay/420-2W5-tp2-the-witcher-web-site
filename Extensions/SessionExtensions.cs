@@ -1,5 +1,12 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
+using System.Threading.Tasks;
+using TP2_Tanguay_Zachary.Models;
+using TP2_Tanguay_Zachary.ViewModels;
 
 public static class SessionExtensions
 {

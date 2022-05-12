@@ -21,123 +21,112 @@
     ViewData["pageTitle"] = "TheWitcher.ca : Create";
     ViewData["Title"] = "Creation de personnage";
 }
-<br />
-<form asp-action="Create" class="createFormWrapper txtWhite">
-    <div class="row">
-        <div class="col-md-8">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="row">
-                <div class="col-5">
-                    <div class="row mr-2">
-                        <div class="card">
-                            <div class="card-header createFormTxt txtCenter">
-                                Identite du personnage
+
+<div class="row" style="justify-content:center;">
+    <div class="col-sm-8 col-lg-6">
+        <form asp-action="Create" class="createFormWrapper txtWhite">
+            <div class="card">
+                <div class="card-header createFormTxt txtCenter">
+                    Personnage
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="NomComplet" class="control-label formTitle">Nom</label>
+                                <input asp-for="NomComplet" class="form-control borderForm formTxt" placeholder="  Saisir le nom" />
+                                <span asp-validation-for="NomComplet" class="text-danger"></span>
                             </div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label asp-for="NomComplet" class="control-label formTitle">Nom</label>
-                                    <input asp-for="NomComplet" class="form-control borderForm formTxt" placeholder="  Saisir le nom" />
-                                    <span asp-validation-for="NomComplet" class="text-danger"></span>
-                                    <br />
-                                    <div class="form-group">
-                                        <label asp-for="Nom" class="control-label formTitle">Prenom</label>
-                                        <input asp-for="Nom" class="form-control borderForm formTxt" placeholder="  Saisir le prénom" />
-                                        <span asp-validation-for="Nom" class="text-danger"></span>
-                                    </div>
-                                    <br />
-                                    <div class="form-group">
-                                        <label asp-for="Surnom" class="control-label formTitle">Surnom</label>
-                                        <input asp-for="Surnom" class="form-control borderForm formTxt" placeholder="  Saisir le ou les surnoms" />
-                                        <span asp-validation-for="Surnom" class="text-danger"></span>
-                                    </div>
-                                    <br />
-                                    <div class="form-group">
-                                        <label asp-for="Age" class="control-label formTitle">Age</label>
-                                        <input asp-for="Age" class="form-control borderForm" />
-                                        <span asp-validation-for="Age" class="text-danger"></span>
-                                    </div>
-                                    <br />
-                                    <div class="form-group">
-                                        <label asp-for="Genre" class="control-label formTitle">Genre</label>
-                                        <input asp-for="Genre" class="form-control borderForm" />
-                                        <span asp-validation-for="Genre" class="text-danger"></span>
-                                    </div>
-                                    <br />
-                                    <div class="form-group">
-                                        <label asp-for="Race" class="control-label formTitle">Race</label>
-                                        <input asp-for="Race" class="form-control borderForm" />
-                                        <span asp-validation-for="Race" class="text-danger"></span>
-                                    </div>
-                                    <br />
-                                    <br />
-                                    <br />
-                                </div>
+                            <div class="form-group">
+                                <label asp-for="Nom" class="control-label formTitle">Prenom</label>
+                                <input asp-for="Nom" class="form-control borderForm formTxt" placeholder="  Saisir le prénom" />
+                                <span asp-validation-for="Nom" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Surnom" class="control-label formTitle">Surnom</label>
+                                <input asp-for="Surnom" class="form-control borderForm formTxt" placeholder="  Saisir le ou les surnoms" />
+                                <span asp-validation-for="Surnom" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Age" class="control-label formTitle">Age</label>
+                                <input asp-for="Age" class="form-control borderForm formTxt" placeholder="  Saisir l'âge"/>
+                                <span asp-validation-for="Age" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Race" class="control-label formTitle">Race</label>
+                                <input asp-for="Race" class="form-control borderForm formTxt" placeholder="  Saisir la race du personnage"/>
+                                <span asp-validation-for="Race" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Description" class="control-label formTitle">Description</label>
+                                <textarea asp-for="Description" name="Description" id="Description" class="form-control borderForm formTxt" placeholder="  Description du personnage"></textarea>
+                                <span asp-validation-for="Description" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label asp-for="ImageURL1" class="control-label formTitle">Image URL 1</label>
+                                <input asp-for="ImageURL1" class="form-control borderForm formTxt" placeholder="  Insérer le premier URL"/>
+                                <span asp-validation-for="ImageURL1" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ImageURL2" class="control-label formTitle">Image URL 2</label>
+                                <input asp-for="ImageURL2" class="form-control borderForm formTxt" placeholder="  Insérer le deuxième URL"/>
+                                <span asp-validation-for="ImageURL2" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="ImageURL3" class="control-label formTitle">Image URL 3</label>
+                                <input asp-for="ImageURL3" class="form-control borderForm formTxt" placeholder="  Insérer le troisième URL"/>
+                                <span asp-validation-for="ImageURL3" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Genre" class="control-label formTitle">Genre</label>
+                                <select asp-for="Genre" name="Genre" id="Genre" class="form-control borderForm formTxt">
+                                    <option value="">- Choisir -</option>
+                                    <option value="Masculin">Masculin</option>
+                                    <option value="Féminin">Féminin</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Role" class="control-label formTitle">Role</label>
+                                <select asp-for="Role" name="Role" id="Role" class="form-control borderForm formTxt">
+                                    <option value="">- Choisir -</option>
+                                    <option value="Roi">Roi</option>
+                                    <option value="Reine">Reine</option>
+                                    <option value="Magicien">Magicien</option>
+                                    <option value="Magicienne">Magicienne</option>
+                                    <option value="Sorceleur">Sorceleur</option>
+                                    <option value="Sorceleuse">Sorceleuse</option>
+                                </select>
+                                <span asp-validation-for="Role" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="IdParent" class="control-label formTitle">Categorie</label>
+                                <select asp-for="IdParent" name="IdParent" id="idParent" class="form-control borderForm formTxt">
+                                    <option value="">- Choisir -</option>
+                                    <option value="1">Rois</option>
+                                    <option value="2">Magiciennes</option>
+                                    <option value="3">Sorceleurs</option>
+                                </select>
+                                <span asp-validation-for="IdParent" class="text-danger"></span>
+                            </div>
+                            <div class="form-group form-check">
+                                <input type="checkbox" class="form-check-input borderForm formTxt" asp-for="Vedette" />
+                                <label class="form-check-label formTxtCheckbox"> Est un personnage vedette</label>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-5">
-                    <div class="row">
-                        <div class="card">
-                            <div class="card-header createFormTxt txtCenter">
-                                Portrait du personnage
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label asp-for="ImageURL1" class="control-label formTitle">Image URL 1</label>
-                                    <input asp-for="ImageURL1" class="form-control borderForm" />
-                                    <span asp-validation-for="ImageURL1" class="text-danger"></span>
-                                </div>
-                                <br />
-                                <div class="form-group">
-                                    <label asp-for="ImageURL2" class="control-label formTitle">Image URL 2</label>
-                                    <input asp-for="ImageURL2" class="form-control borderForm" />
-                                    <span asp-validation-for="ImageURL2" class="text-danger"></span>
-                                </div>
-                                <br />
-                                <div class="form-group">
-                                    <label asp-for="ImageURL3" class="control-label formTitle">Image URL 3</label>
-                                    <input asp-for="ImageURL3" class="form-control borderForm" />
-                                    <span asp-validation-for="ImageURL3" class="text-danger"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="row">
-                        <div class="card">
-                            <div class="card-header createFormTxt txtCenter">
-                                Détail du personnage
-                            </div>
-                            <div class="card-body">
-                                <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input borderForm" asp-for="Vedette"/>
-                                    <label class="form-check-label formTitle"> test</label>
-                                </div>
-                                <br />
-                                <div class="form-group">
-                                    <label asp-for="Description" class="control-label formTitle">Description</label>
-                                    <input asp-for="Description" class="form-control borderForm" />
-                                    <span asp-validation-for="Description" class="text-danger"></span>
-                                </div>
-                                <br>
-                                <div class="form-group">
-                                    <label asp-for="Role" class="control-label formTitle">Role</label>
-                                    <input asp-for="Role" class="form-control borderForm" />
-                                    <span asp-validation-for="Role" class="text-danger"></span>
-                                </div>
+                <div class="addButtonWrapper">
+                    <div class="row addButtonTxt">
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="submit" value="ADD" class="btn btn-secondary txtWhite" />
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-    <br />
-    <div class="row">
-        <div class="form-group">
-            <input type="submit" value="Ajouter" class="btn btn-primary" />
-        </div>
-    </div>
-</form>
-
+</div>

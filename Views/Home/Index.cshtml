@@ -1,9 +1,5 @@
-﻿@using TP2_Tanguay_Zachary.Models;
-@using System.Linq;
+﻿@using System.Linq;
 
-@{
-    Layout = "_Layout";
-}
 @section BackgroundDiff {
     <style>
         body {
@@ -22,7 +18,7 @@
     ViewData["Title"] = "Categorie des personnages";
 }
 
-@model List<Parent>;
+@model List<Parent>
 
     <!-- PAGE : ACCUEIL -->
 
@@ -43,7 +39,7 @@
                                     <p class="card-text">
                                         <h6>ߜ Statistique ߜ</h6>
                                         <ul class="homeStats">
-                                            <li class="card-text homeStatsTxt">Nombre de @parent.Nom : @(parent.Enfants.Count)</li>
+                                            <li class="card-text homeStatsTxt">Nombre de @parent.Nom : @(parent.Enfants.ToList().Count())</li>
                                             <li class="card-text homeStatsTxt">Nombre de femmes : @(parent.Enfants.Count(e => e.Genre == "Féminin"))</li>
                                             <li class="card-text homeStatsTxt">Nombre d'hommes : @(parent.Enfants.Count(e => e.Genre == "Masculin"))</li>
                                         </ul>

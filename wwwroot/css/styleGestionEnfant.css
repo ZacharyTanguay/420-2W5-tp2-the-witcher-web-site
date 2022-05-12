@@ -65,6 +65,7 @@
 .createFormTxt {
     font-weight: lighter;
     font-size: 2vmax;
+    color: white;
 }
 .createFormTxt:focus {
     color: white;
@@ -93,10 +94,29 @@
         color: white;
     }
 
+.addButtonWrapper {
+    background-color: black;
+    text-align: center !important;
+}
+
+.addButtonTxt {
+    justify-content: right;
+    text-align: right;
+    margin-right: 2px;
+    margin-top: 10px;
+    color: white;
+}
+.addButtonTxt:focus {
+    color: white;
+}
+
+option {
+    color: white;
+}
 
 
 
-    
+
 /* Keyframes */
 @keyframes createformChangeBorderColor {
     0% {

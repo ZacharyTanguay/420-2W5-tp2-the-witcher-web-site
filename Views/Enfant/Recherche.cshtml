@@ -11,7 +11,7 @@
 @section BackgroundDiff {
     <style>
         body {
-            background-image: url(../images/Background_4.webp);
+            background-image: url(/images/Background_4.webp);
             height: 100%;
         }
     </style>
@@ -156,24 +156,8 @@
                                     <div class="dropdown-content">
                                         <h2 class="dropdownMenuTitle">Options</h2>
                                         <a href="#">Editer @Enfants.Nom</a>
-                                        <a href="#">Supprimer @Enfants.Nom</a>
+                                        <a href="/GestionEnfant/Delete/@Enfants.Id">Supprimer @Enfants.Nom</a>
                                         <a href="#">Ajouter @Enfants.Nom au favoris</a>
-                                        <div class="dropdownMenuDesc">
-                                            <div>
-                                                Nom<br />
-                                                <i class="fas fa-chevron-right"></i> @Enfants.Nom
-                                            </div><br />
-                                            <div>
-                                                Nom Complet<br />
-                                                <i class="fas fa-chevron-right"></i> @Enfants.NomComplet
-                                            </div><br />
-                                            <div>
-                                                Genre : @Enfants.Genre <br />
-                                            </div><br />
-                                            <div>
-                                                Âge : @Enfants.Age <br />
-                                            </div><br />
-                                        </div>
                                     </div>
                                 </div>
                                 <a href="/Enfant/Détail/@Enfants.Id" class="links">
