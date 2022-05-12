@@ -9,11 +9,14 @@ namespace TP2_Tanguay_Zachary.Controllers
 {
     public class HomeController : Controller
     {
-        /// <summary>
-        /// Action retournant la vue de l'index
-        /// </summary>
-        /// <returns>Accueil.cshtml</returns>
-        public IActionResult Index(Database DB)
+        public Database DB;
+
+        public HomeController(Database DB)
+        {
+            this.DB = DB;
+        }
+
+        public IActionResult Index()
         {
             return View(DB.Parents);
         }

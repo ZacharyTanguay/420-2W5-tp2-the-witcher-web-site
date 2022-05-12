@@ -10,7 +10,7 @@
 @using TP2_Tanguay_Zachary.Models;
 
 @{
-    Layout = "_Layout";
+    Layout = "_LayoutAjouterPerso";
 }
 
 @model Enfant
@@ -18,7 +18,8 @@
 @section BackgroundDiff {
     <style>
         body {
-            background-image: url(/images/faceaface.png);
+            background-image: url(/images/Background_4.webp);
+            height: 100%;
         }
     </style>
 }
@@ -28,74 +29,99 @@
     ViewData["Title"] = "Detail du personnage \t" + Model.Nom;
 }
 
-<div>
-    <form action="https://www.w3schools.com/action_page.php">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="carousel-inner searchCardImg">
-                    <div class="carousel-item active">
-                        <img class="searchImg d-block w-100" src="@Model.ImageURL1" alt="First slide"><!--1er image du carousel-->
-                    </div>
-                    <div class="carousel-item">
-                        <img class="searchImg d-block w-100" src="@Model.ImageURL2" alt="Second slide"><!--2e image du carousel-->
-                    </div>
-                    <div class="carousel-item">
-                        <img class="searchImg d-block w-100" src="@Model.ImageURL3" alt="Third slide"><!--3e image du carousel-->
+<div class="row" style="justify-content:center;">
+    <div class="col-sm-8 col-lg-6">
+        <div class="createFormWrapper txtWhite">
+            <div class="card">
+                <div class="card-header createFormTxt">
+                    <div class="row txtCenter">
+                        @Model.NomComplet
+                        @if (Model.Vedette)
+                        {
+                            <div class="alert alert-secondary boutonDetail" style="left:20px;" role="alert">
+                                <b>PERSONNAGE VEDETTE!</b>
+                            </div>
+                        }
                     </div>
                 </div>
-                <br><!-- Espacement -->
-            </div>
-            <div class="col-md-8 texteEnBlanc">
+                <h5 class="txtCenter">Personnage</h5>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-auto">
-                            <div class="form-row">
-                                <div class="alert alert-secondary boutonDetail" role="alert">
-                                    <b>PERSONNAGE VEDETTE!</b>
+                        <div class="col">
+                            <div class="row">
+                                <div>
+                                    <hr />
+                                    <br />
+                                    <div class="col-12">
+                                        <span><b>Nom complet : @Model.NomComplet</b></span><br>
+                                        <br>
+                                        <span><b>Nom : @Model.Nom</b></span><br>
+                                        <br>
+                                        <span><b>Surnom : @Model.Surnom</b></span><br>
+                                        <br>
+                                        <span><b>Sexe : @Model.Genre</b></span><br>
+                                        <br>
+                                        <span><b>Âge : @Model.Age</b></span><br>
+                                        <br>
+                                        <span><b>Rôle : @Model.Role </b></span><br>
+                                        <br>
+                                        <span><b>Race : @Model.Race</b></span><br>
+                                        <br>
+                                        <span><b>Sexe : @Model.Genre</b></span><br>
+                                        <br>
+                                        <span><b>Âge : @Model.Age</b></span><br>
+                                        <br>
+                                        <span><b>Rôle : @Model.Role </b></span><br>
+                                        <br>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-auto">
-                            <div class="form-row">
-                                <input type="hidden" name="nom" id="GeraltdeRiv">
-                                <button type="submit" class="btn-primary boutonDetail">
-                                    <b>FAVORIS <i class="fas fa-plus"></i></b>
-                                </button>
+                        <div class="col">
+                            <div class="row rowImageRecherche ml-2">
+                                <div class="searchCardWrapper mt-5 ml-1">
+                                    <div class="carousel slide">
+                                        <div class="carousel-inner searchCardImg">
+                                            <div class="carousel-item active">
+                                                <img class="searchImg d-block w-100" src="@Html.DisplayFor(model => model.ImageURL1)" alt="First slide">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="searchImg d-block w-100" src="@Html.DisplayFor(model => model.ImageURL2)" alt="Second slide">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img class="searchImg d-block w-100" src="@Html.DisplayFor(model => model.ImageURL3)" alt="Third slide">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div><br>
-                </div>
-                <div class="row infoPersonnageDetail">
-                    <p class="card-text">
+                    </div>
+                    <div class="row">
                         <div class="col-12">
-                            <span><b>Nom : @Model.Nom</b></span><br>
-                            <br>
-                            <span><b>Sexe :</b></span><br>
-                            <br>
-                            <span><b>Âge :</b></span><br>
-                            <br>
-                            <span><b>Rôle </b>:</span><br>
-                            <br>
+                            <h1 class="createFormTxt txtCenter">Description</h1>
+                            @Model.Description
                         </div>
-                    </p>
+                    </div>
                 </div>
-                <div class="row mr-3">
-                    <div class="col">
-                        <div class="alert alert-secondary texteDescDetail2" role="alert">
-                            <h5 class="text-center"><b class="titrePage text-uppercase">Description</b></h5>
-                            @Model.Description;
+                <div class="addButtonWrapper">
+                    <div class="row addButtonTxt">
+                        <div class="col-11">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row txtCenter mr-1">
+                                        <h6 class="m-2">Voulez-vous ajouter ce personnage au favoris ?</h6>
+                                        <form asp-controller="Favoris" asp-action="AjouterUnEnfant" method="post" class="form-group form-row">
+                                            <input type="hidden" name="id" value="@Model.Id">
+                                            <button type="submit" class="btn-primary"><b>FAVORIS</b></button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
-                <div class="alert alert-secondary texteDescDetail1" role="alert">
-                    <h5 class="text-center"><b class="titrePage text-uppercase">Description</b></h5>
-                    @Model.Description;
-                </div>
-            </div>
-        </div>
-    </form>
+    </div>
 </div>

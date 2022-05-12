@@ -155,9 +155,14 @@
                                     <button class="dropbtn"><i class="fas fa-minus"></i></button>
                                     <div class="dropdown-content">
                                         <h2 class="dropdownMenuTitle">Options</h2>
-                                        <a href="#">Editer @Enfants.Nom</a>
+                                        <a href="/Enfant/Détail/@Enfants.Id">Detail sur @Enfants.Nom</a>
                                         <a href="/GestionEnfant/Delete/@Enfants.Id">Supprimer @Enfants.Nom</a>
-                                        <a href="#">Ajouter @Enfants.Nom au favoris</a>
+                                        <a href="/Favoris/Index">
+                                            <form asp-controller="Favoris" asp-action="AjouterUnEnfant" method="post" class="favHover">
+                                                <input type="hidden" name="id" value="@Enfants.Id">
+                                                <button type="submit" class="boutonFavoris">Ajouter @Enfants.Nom au favoris</button>
+                                            </form>
+                                        </a>
                                     </div>
                                 </div>
                                 <a href="/Enfant/Détail/@Enfants.Id" class="links">

@@ -26,40 +26,37 @@
 }
 
 <!-- PAGE : FAVORIS -->
-
 <div class="text-center">
-
-    <!-- Espacement -->
+    <br />
     <p class="titrePage text-center">Vous avez <b>4 personnages</b> en favoris</p>
-    <!-- Espacement -->
-        <form action="https://www.w3schools.com/action_page.php" class="form-check-inline">
-            <div class="table-responsive">
-                <table class="table table-striped table-dark align-content-center">
-                    <thead>
+    <br />
+    <div class="form-check-inline">
+        <div class="table-responsive">
+            <table class="table table-striped table-dark justify-content-center">
+                <thead>
+                    <tr>
+                        <th scope="col">PORTRAIT</th>
+                        <th scope="col">NOM</th>
+                        <th scope="col">RÔLE</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (Enfant enfant in Model)
+                    {
                         <tr>
-                            <th scope="col">IMAGES</th>
-                            <th scope="col">NOM PERSONNAGE</th>
-                            <th scope="col">RÔLE</th>
+                            <th scope="row"><img src="@enfant.ImageURL1" class="tailleImageFavoris" alt=""></th>
+                            <td><a href="/Enfant/Détail/@enfant.Id">@enfant.Nom</a></td>
+                            <td>@enfant.Parent.Nom</td>
+                            <td>
+                                <form asp-action="SupprimerUnEnfant" method="post" class="form-inline">
+                                    <input type="hidden" name="id" value="@enfant.Id">
+                                    <button type="submit" class="btn-dark"><i class="fas fa-user-times"></i></button>
+                                </form>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (Enfant enfant in Model)
-                        {
-                            <tr>
-                                <th scope="row"><img src="@enfant.ImageURL1" class="tailleImageFavoris" alt=""></th>
-                                <td><a href="/Enfant/Détail/@enfant.Id">@enfant.Nom</a></td>
-                                <td>@enfant.Parent.Nom</td>
-                                <td><button type="submit" class="btn-dark"><i class="fas fa-user-times"></i></button></td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-            </div>
-        </form>
-</div>
-
-<div class="txtCenter">
-    <form action="/Enfant/Détail/" method="get">
-
-    </form>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>

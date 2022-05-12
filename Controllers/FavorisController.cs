@@ -16,7 +16,6 @@ namespace TP2_Tanguay_Zachary.Controllers
             this.DB = db;
         }
 
-        [HttpPost]
         public IActionResult Index()
         {
             List<int> enfantIDs = HttpContext.Session.Get<List<int>>("enfantIDs");
@@ -28,6 +27,7 @@ namespace TP2_Tanguay_Zachary.Controllers
             return View(enfantsDeLaBD);
         }
 
+        [HttpPost]
         public IActionResult AjouterUnEnfant(int id)
         {
             List<int> enfantIDs = HttpContext.Session.Get<List<int>>("enfantIDs");
@@ -43,7 +43,7 @@ namespace TP2_Tanguay_Zachary.Controllers
             }
 
 
-            HttpContext.Session.Set<List<int>>("enfantsIDs", enfantIDs);
+            HttpContext.Session.Set<List<int>>("enfantIDs", enfantIDs);
 
             var enfantsDeLaBD = DB.Enfants.Where(e => enfantIDs.Contains(e.Id)).ToList();
 
@@ -66,7 +66,7 @@ namespace TP2_Tanguay_Zachary.Controllers
             }
 
 
-            HttpContext.Session.Set<List<int>>("enfantsIDs", enfantIDs);
+            HttpContext.Session.Set<List<int>>("enfantIDs", enfantIDs);
 
             var enfantsDeLaBD = DB.Enfants.Where(e => enfantIDs.Contains(e.Id)).ToList();
             return View("Index", enfantsDeLaBD);

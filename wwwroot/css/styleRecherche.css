@@ -87,6 +87,15 @@
 	color: red;
 }
 
+.favHover:focus {
+	color: red;
+}
+
+.boutonDetail {
+	width: 30%;
+	font-size: small;
+}
+
 
 
 
@@ -156,6 +165,11 @@
 }
 .formTxtCheckbox:focus {
 	color: white;
+}
+
+.boutonFavoris {
+	border: none;
+	background-color: transparent;
 }
 
 

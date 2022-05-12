@@ -18,6 +18,8 @@ namespace TP2_Tanguay_Zachary
         {
             services.AddMvc().AddRazorRuntimeCompilation(); //Besoin d'inclure la bibliothèque (package NuGet) : Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
             services.AddSingleton<Database>();
+            services.AddDistributedMemoryCache();
+            services.AddSession(options => { options.IdleTimeout = TimeSpan.FromMinutes(20); });
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -34,6 +36,8 @@ namespace TP2_Tanguay_Zachary
             {
                 app.UseStaticFiles();
             }
+
+            app.UseSession();
             app.UseRouting();
             app.UseEndpoints(endpoints =>
             {
