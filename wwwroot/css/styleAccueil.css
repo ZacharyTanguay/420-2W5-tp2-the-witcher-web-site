@@ -59,7 +59,7 @@
     opacity: 0.9;
     animation: borderColorChange1 3s ease-in-out infinite;
     transition: opacity 0.2s ease-in-out;
-    box-shadow: 0 0 30px white;
+    box-shadow: 0 0 30px whitesm;
 }
 .homeCardWrapper:hover {
     animation: cardAnimation1 1s ease-in-out 0.2s infinite;
@@ -89,6 +89,7 @@
     list-style-type: none; /*Cache les "bullets" de la list*/
     padding-inline-start: 0;
     white-space: nowrap;
+    font-size: 100%;
 }
 
 
@@ -125,12 +126,8 @@
         width: 100vw;
     }
     .homeCardWrapper {
-        animation: cardAnimation1 1s ease-in-out 0.2s infinite;
         opacity: 1.0;
         box-shadow: 0 0 30px red;   
-    }
-    .homeStats {
-        font-size: 30px;
     }
 }
 
@@ -146,12 +143,11 @@
         font-size: 130%;
     }
     .homeCardWrapper {
-        animation: cardAnimation1 1s ease-in-out 0.2s infinite;
         opacity: 1.0;
         box-shadow: 0 0 30px red;
     }
     .homeStats {
-        font-size: 20px;
+        font-size: 100%;
         padding-left: 0px;
     }
 }
@@ -171,6 +167,10 @@
         animation: cardAnimation1 1s ease-in-out 0.2s infinite;
         opacity: 1.0;
         box-shadow: 0 0 30px red;
+    }
+    .homeStats {
+        font-size: 100%;
+        padding-left: 0px;
     }
 }
 

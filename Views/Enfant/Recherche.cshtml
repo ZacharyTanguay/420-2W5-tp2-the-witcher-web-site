@@ -57,10 +57,10 @@
                         <label for="agePersonnage" class="formTitle">Age du personnage</label>
                     </div>
                     <div class="col-6 form-group">
-                        <input type="number" id="agePersonnage" name="AgePersonnageMin" min="1" max="10000" class="form-control formTxt borderForm" placeholder="Min" value="@Model.Criteres.AgePersonnageMin">
+                        <input type="number" id="agePersonnage" name="AgePersonnageMin" min="1" max="200" class="form-control formTxt borderForm" placeholder="Min" value="@Model.Criteres.AgePersonnageMin">
                     </div>
                     <div class="col-6 form-group">
-                        <input type="number" id="agePersonnage" name="AgePersonnageMax" min="1" max="10000" class="form-control formTxt borderForm" placeholder="Max" value="@Model.Criteres.AgePersonnageMax">
+                        <input type="number" id="agePersonnage" name="AgePersonnageMax" min="1" max="200" class="form-control formTxt borderForm" placeholder="Max" value="@Model.Criteres.AgePersonnageMax">
                     </div><!--Fin propriété de type numérique en lien avec les entités Enfants -->
                 </div>
 
@@ -122,8 +122,8 @@
                 </div><!-- Fin checkbok pour représenter les entités parents (coché par défaut -->
 
                 <div class="form-row">
-                    <div class="col-auto formTxt"><button type="reset" class="btn-secondary boutonRecherche"><i class="fas fa-redo"></i> Réinitialiser</button></div>
-                    <div class="col-auto formTxt"><button type="submit" class="btn-primary boutonRecherche">Rechercher<i class="fas fa-search"></i></button></div>
+                    <div class="col-auto formTxt"><button type="reset" class="btn-danger boutonRecherche"><i class="fas fa-redo"></i> Réinitialiser</button></div>
+                    <div class="col-auto formTxt"><button type="submit" class="btn-light boutonRecherche">Rechercher <i class="fas fa-search"></i></button></div>
                 </div>
                 <div class="row">
                     <div class="col">

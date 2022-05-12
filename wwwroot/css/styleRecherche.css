@@ -87,15 +87,6 @@
 	color: red;
 }
 
-.favHover:focus {
-	color: red;
-}
-
-.boutonDetail {
-	width: 30%;
-	font-size: small;
-}
-
 
 
 
@@ -170,6 +161,22 @@
 .boutonFavoris {
 	border: none;
 	background-color: transparent;
+}
+
+.favHover:focus {
+	color: red;
+}
+
+.boutonDetail {
+	width: 30%;
+	font-size: small;
+}
+
+.boutonRecherche {
+	border-radius: 10px;
+	padding: 2px 2px 2px 2px;
+	font-family: 'Bookman Old Style';
+	border: 2px groove black;
 }
 
 

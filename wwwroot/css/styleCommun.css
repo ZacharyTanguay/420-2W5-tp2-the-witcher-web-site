@@ -43,6 +43,10 @@ main {
     margin-bottom: 100px;
 }
 
+.BackgroundDiff {
+    object-fit: cover;
+}
+
 
 
 
